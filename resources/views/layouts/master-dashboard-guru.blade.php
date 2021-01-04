@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>@yield('title')</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -78,8 +78,8 @@
 					<ul class="nav">
 						<li><a href="{{route('home')}}" class="{{(request()->is('home')) ? 'active' : ''}}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="{{route('profilGuru')}}" class="{{(request()->is('/profil')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
-						<li><a href="charts.html" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
-						<li><a href="panels.html" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
+						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
+						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
 						<!-- <li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
@@ -97,12 +97,21 @@
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
-	@yield('content')
-		<div class="clearfix"></div>
+		<div class="main">
+		  <div class="main-content">
+		    <div class="row">
+		      <div class="col-md-12">
+						@yield('content')
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix">
+		</div>
 		<footer>
 			<div class="container-fluid">
 				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-</p>
+				</p>
 			</div>
 		</footer>
 	</div>
@@ -114,7 +123,8 @@
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
-	
+	<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+	@yield('linkfooter')
 </body>
 
 </html>

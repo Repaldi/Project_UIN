@@ -43,6 +43,12 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
   
 });
 
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/petunjuk','Guru\PetunjukController@index')->name('petunjuk');
+    Route::post('/petunjuk','Guru\PetunjukController@storePetunjuk')->name('storePetunjuk');
+    Route::get('/kd&tujuan','Guru\KDTujuanController@index')->name('kdTujuan');
+    Route::post('/kd&tujuan','Guru\KDTujuanController@storeKDTujuan')->name('storeKDTujuan');
+});
 
 //ROUTE SISWA
 
