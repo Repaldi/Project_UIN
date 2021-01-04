@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'FrontEnd\HomeController@index')->name('index');
+Route::get('/tentang', 'FrontEnd\HomeController@tentang')->name('tentang');
+Route::get('/kontak', 'FrontEnd\HomeController@hubungiKami')->name('hubungiKami');
+
 
 
 Auth::routes();

@@ -14,7 +14,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        return view('guru/index'); 
+    }
+    public function profilGuru()
+    {
+        return view('guru/profil'); 
     }
 
     /**

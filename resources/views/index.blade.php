@@ -24,8 +24,6 @@
     </div>
     
 
-    <div></div>
-
     <div class="site-section">
       <div class="container">
         <div class="row mb-5 justify-content-center text-center">
@@ -80,8 +78,6 @@
 
     <div class="site-section">
       <div class="container">
-
-
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
             <h2 class="section-title-underline mb-3">
@@ -466,4 +462,5 @@
         </div>
       </div>
     </div> 
+  </div>
 @stop
