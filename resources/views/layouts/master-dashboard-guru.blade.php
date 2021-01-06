@@ -77,7 +77,7 @@
 						<li><a href="{{route('profilGuru')}}" class="{{(request()->is('/profil')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
 						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
+						<li><a href="{{route('materi')}}" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
 						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
 					</ul>
 				</nav>
@@ -110,8 +110,9 @@
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 	@yield('linkfooter')
+	@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>
 
 </html>

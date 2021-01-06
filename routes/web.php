@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth','checkRole:0'],'prefix'=>'admin'], functio
     Route::get('/data-siswa','Admin\DashboardController@dataSiswa')->name('dataSiswa');
     Route::get('/data-siswa/create','Admin\DashboardController@createSiswa')->name('datasiswaCreate');
     Route::post('/data-siswa/store','Admin\DashboardController@storeSiswa')->name('datasiswaStore');
-  
+
 });
 
 //ROUTE GURU
@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     Route::get('/profil', 'Guru\DashboardController@profilGuru')->name('profilGuru');
     Route::post('/profil','Guru\DashboardController@storeProfilGuru')->name('storeProfilGuru');
     Route::patch('/profil/{id}/update','Guru\DashboardController@updateProfilGuru', ['$id' =>'id'])->name('updateProfilGuru');
-  
+
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -50,6 +50,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/petunjuk','Guru\PetunjukController@storePetunjuk')->name('storePetunjuk');
     Route::get('/kd&tujuan','Guru\KDTujuanController@index')->name('kdTujuan');
     Route::post('/kd&tujuan','Guru\KDTujuanController@storeKDTujuan')->name('storeKDTujuan');
+
+    Route::get('/materi','Guru\MateriController@materi')->name('materi');
+    Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
+    Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
 });
 
 //ROUTE SISWA
