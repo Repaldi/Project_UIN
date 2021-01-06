@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/petunjuk','Guru\PetunjukController@storePetunjuk')->name('storePetunjuk');
     Route::get('/kd&tujuan','Guru\KDTujuanController@index')->name('kdTujuan');
     Route::post('/kd&tujuan','Guru\KDTujuanController@storeKDTujuan')->name('storeKDTujuan');
+    Route::get('/buatSoal','Guru\SoalController@index')->name('buatSoal');
+    Route::post('/buatSoal','Guru\SoalController@storeSoal')->name('storeSoal');
 });
 
 //ROUTE SISWA

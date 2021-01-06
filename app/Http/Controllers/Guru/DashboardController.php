@@ -30,7 +30,7 @@ class DashboardController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'required|file|image|mimes:png,jpg,jpeg',
+            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $file = $request->file('foto');

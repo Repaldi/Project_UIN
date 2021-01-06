@@ -460,6 +460,8 @@ $(document).ready(function(){
 </script>
 @endsection
 @section('linkfooter')
+
+
 <!-- Update Modal (Profil)-->
 <div class="modal fade update_modal_profil"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" >
@@ -516,3 +518,4 @@ $(document).ready(function(){
     </div>
 
 <!-- Penutup Update Profil -->
+@stop

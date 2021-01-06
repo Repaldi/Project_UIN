@@ -78,7 +78,7 @@
 						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
-						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
+						<li><a href="{{route('buatSoal')}}" class=""><i class="lnr lnr-dice"></i> <span>Buat Soal</span></a></li>
 					</ul>
 				</nav>
 			</div>
