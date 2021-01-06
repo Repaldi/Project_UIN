@@ -40,9 +40,6 @@
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Cari</button></span>
 					</div>
 				</form>
-				<!-- <div class="navbar-btn navbar-btn-right">
-					<a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</div> -->
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -81,16 +78,6 @@
 						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
 						<li><a href="notifications.html" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
-						<!-- <li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-								</ul>
-							</div>
-						</li> -->
 						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
 					</ul>
 				</nav>
@@ -101,10 +88,10 @@
 		  <div class="main-content">
 		    <div class="row">
 		      <div class="col-md-12">
-						@yield('content')
-					</div>
-				</div>
+				@yield('content')
+			  </div>
 			</div>
+		   </div>
 		</div>
 		<div class="clearfix">
 		</div>

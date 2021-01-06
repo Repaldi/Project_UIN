@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth','checkRole:0'],'prefix'=>'admin'], functio
 //ROUTE GURU
 Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function(){
     Route::get('/profil', 'Guru\DashboardController@profilGuru')->name('profilGuru');
+    Route::post('/profil','Guru\DashboardController@storeProfilGuru')->name('storeProfilGuru');
+    Route::patch('/profil/{id}/update','Guru\DashboardController@updateProfilGuru', ['$id' =>'id'])->name('updateProfilGuru');
   
 });
 
