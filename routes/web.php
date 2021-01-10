@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/kd&tujuan','Guru\KDTujuanController@storeKDTujuan')->name('storeKDTujuan');
     Route::get('/buatSoal','Guru\SoalController@index')->name('buatSoal');
     Route::post('/buatSoal','Guru\SoalController@storeSoal')->name('storeSoal');
+    Route::patch('/buatSoal','Guru\SoalController@updateSoal')->name('updateSoal');
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
     Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
     Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
