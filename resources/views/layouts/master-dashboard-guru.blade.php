@@ -110,7 +110,8 @@
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+	<!-- <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script> -->
+	<!-- <script src="{{asset('ckeditor/ckeditor.js')}}"></script> -->
 	@yield('linkfooter')
 	@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>

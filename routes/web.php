@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
     Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
     Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
+    Route::get('/quiz','Guru\QuizController@index')->name('getQuiz');
+    Route::post('/quiz','Guru\QuizController@storeSoalQuiz')->name('storeSoalQuiz');
 });
 
 //ROUTE SISWA

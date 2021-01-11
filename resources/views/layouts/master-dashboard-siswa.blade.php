@@ -80,7 +80,7 @@
 						<li><a href="{{route('profilSiswa')}}" class="{{(request()->is('profilSiswa')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
 						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
+						<li><a href="{{route('materi')}}" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
 						<!-- <li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -114,7 +114,7 @@
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
-	
+
 </body>
 
 </html>

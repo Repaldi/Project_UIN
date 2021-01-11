@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
 use App\Materi;
-Use Alert;
+use Alert;
 
 use Illuminate\Http\Request;
 
@@ -45,7 +45,8 @@ class MateriController extends Controller
         'materi' =>$request->materi
       ]);
 
-      return "oke";
+      Alert::success('Berhasil Membuat materi');
+      return redirect()->back();
     }
 
     public function updateMateri(Request $request)

@@ -3,13 +3,13 @@
 use App\Pilgan;
 $pilgan = Pilgan::where('isdelete',false)->get();
 ?>
-@section('content')    
+@section('content')
 <div class="container-fluid">
 <div class="panel panel-headline">
         <div class="panel-heading">
-                <h3 class="panel-title">Buat Soal Latihan</h3>
-                <button type="submit" class="btn btn-info" style="color:black;float:right; margin:10px;"data-toggle="modal" data-target=".create_modal_pilgan"> Tambah Soal</button>
-                <p class="panel-subtitle">*Listrik Dinamis</p>
+            <h3 class="panel-title">Buat Soal Latihan</h3>
+            <button type="submit" class="btn btn-info" style="color:black;float:right; margin:10px;"data-toggle="modal" data-target=".create_modal_pilgan"> Tambah Soal</button>
+            <p class="panel-subtitle">*Listrik Dinamis</p>
         </div>
 
         <div class="panel-body">
@@ -18,10 +18,10 @@ $pilgan = Pilgan::where('isdelete',false)->get();
                         @foreach ($pilgan as $item)
                         <div class="col-md-3">
                                 <div class="card">
-                                         <div class="card-body"> 
+                                         <div class="card-body">
                                         <h6><strong>Soal No. <?php echo $i; $i++ ; ?></strong> <span style="float:right;">Poin : {!!$item->poin!!}</span></h6> <hr class="mt-1 mb-1">
-                                        <p class="mb-2">Kunci Jawaban : {!!$item->kunci!!}</p> 
-                        <div class="text-right"> 
+                                        <p class="mb-2">Kunci Jawaban : {!!$item->kunci!!}</p>
+                        <div class="text-right">
                         <button class="btn btn-info" data-toggle="modal" data-target=".update_modal_pilgan"
                         id="updatePilgan"
                         data-pilgan_id_update="{!! $item->id !!}"
@@ -40,7 +40,7 @@ $pilgan = Pilgan::where('isdelete',false)->get();
            </div>
         </div>
     @endforeach
-                        
+
                 </div>
         </div>
 </div>
@@ -101,12 +101,12 @@ $(document).ready(function(){
 
 <div class="form-group">
 <label for="Pertanyaan" class="col-form-label">Pertanyaan</label>
-<textarea class="form-control" name="pertanyaan" rows="auto" cols="auto" id="Pertanyaan"></textarea>
+<textarea class="form-control ckeditor" name="pertanyaan" rows="auto" cols="auto" id="Pertanyaan"></textarea>
 </div>
 </div>
 </div>
 <div class="row">
-<div class="col-md-3"> 
+<div class="col-md-3">
 <div class="form-group">
 <label for="PilA" class="col-form-label">Pilihan A</label>
 <textarea class="form-control" name="pil_a" rows="auto" cols="auto" id="PilA"></textarea>
@@ -118,9 +118,9 @@ $(document).ready(function(){
 <div class="form-group">
 <label for="PilC" class="col-form-label">Pilihan C</label>
 <textarea class="form-control" name="pil_c" rows="auto" cols="auto" id="PilC"></textarea>
-</div>  
 </div>
-<div class="col-md-3">									
+</div>
+<div class="col-md-3">
 <div class="form-group">
 <label for="PilD" class="col-form-label">Pilihan D</label>
 <textarea class="form-control" name="pil_d" rows="auto" cols="auto" id="PilD"></textarea>
@@ -136,7 +136,7 @@ $(document).ready(function(){
 </div>
 </div>
 <div class="row">
-<div class="col-md-3"> 
+<div class="col-md-3">
 <div class="form-group">
 <label for="kunci" class="col-form-label">Kunci</label>
 <select class="form-control" name="kunci" id="kunci" >
@@ -146,7 +146,7 @@ $(document).ready(function(){
 <option value="D">D</option>
 <option value="E">E</option>
 </select>
-</div>                                   
+</div>
 </div>
 </div>
 
@@ -163,6 +163,8 @@ $(document).ready(function(){
 </div>
 </div>
 <!-- Penutup Create Modal -->
+<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+
 <script>
 ClassicEditor
             .create( document.querySelector( '#Pertanyaan' ) )
@@ -243,7 +245,7 @@ ClassicEditor
                         </div>
                 </div>
                 <div class="row">
-                        <div class="col-md-3"> 
+                        <div class="col-md-3">
                                 <div class="form-group">
                                         <label for="PilA" class="col-form-label">Pilihan A</label>
                                         <textarea class="form-control" name="pil_a" rows="auto" cols="auto" id="pil_a_update"></textarea>
@@ -255,9 +257,9 @@ ClassicEditor
                                 <div class="form-group">
                                         <label for="PilC" class="col-form-label">Pilihan C</label>
                                         <textarea class="form-control" name="pil_c" rows="auto" cols="auto" id="pil_c_update"></textarea>
-                                </div>  
+                                </div>
                         </div>
-                        <div class="col-md-3">									
+                        <div class="col-md-3">
                                 <div class="form-group">
                                         <label for="PilD" class="col-form-label">Pilihan D</label>
                                         <textarea class="form-control" name="pil_d" rows="auto" cols="auto" id="pil_d_update"></textarea>
@@ -274,7 +276,7 @@ ClassicEditor
                 </div>
 
                 <div class="row">
-                        <div class="col-md-3"> 
+                        <div class="col-md-3">
                                 <div class="form-group">
                                         <label for="kunci" class="col-form-label">Kunci</label>
                                         <select class="form-control" name="kunci" id="kunci_update" >
@@ -284,9 +286,9 @@ ClassicEditor
                                                 <option value="D">D</option>
                                                 <option value="E">E</option>
                                         </select>
-                                </div>                                   
+                                </div>
                         </div>
-                </div>  
+                </div>
                 </div>
 
         <div class="modal-footer">
