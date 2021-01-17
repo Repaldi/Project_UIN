@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'FrontEnd\HomeController@index')->name('index');
 Route::get('/tentang', 'FrontEnd\HomeController@tentang')->name('tentang');
@@ -19,7 +20,6 @@ Route::get('/kontak', 'FrontEnd\HomeController@hubungiKami')->name('hubungiKami'
 
 
 
-Auth::routes();
 
 Route::get('/logout','HomeController@logout')->name('logout');
 
@@ -59,10 +59,19 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/quiz','Guru\QuizController@index')->name('getQuiz');
     Route::post('/quiz','Guru\QuizController@storeSoalQuiz')->name('storeSoalQuiz');
     Route::patch('/quiz','Guru\QuizController@updateSoalQuiz')->name('updateSoalQuiz');
+
+    Route::get('/create-quiz','Siswa\QuizController@createQuiz');
 });
 
+Route::get('pagination/fetch_data','Siswa\QuizController@fetch_data');
+Route::get('store/quiz_jawab','Siswa\QuizController@jawabQuiz')->name('jawabQuiz');
+Route::get('quiz/check','Siswa\QuizController@checkQuiz');
+Route::get('quiz/finish/{quiz_siswa_id}','Siswa\QuizController@finishQuiz')->name('finishQuiz');
 //ROUTE SISWA
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
-Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
+    Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
+    Route::get('/quiz/{quiz_siswa_id}','Siswa\QuizController@getQuizSiswa')->name('getQuizSiswa');
+
+
 });

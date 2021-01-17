@@ -19,7 +19,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets_2/img/apple-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets_2/img/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets_2/img/favicon.png')}}">
+    <script src="{{asset('assets_2/vendor/jquery/jquery-3.5.1.js')}}"></script>
 </head>
 
 <body>
@@ -97,7 +98,15 @@
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
-	@yield('content')
+		<div class="main">
+		  <div class="main-content">
+		    <div class="row">
+		      <div class="col-md-12">
+				@yield('content')
+			  </div>
+			</div>
+		   </div>
+		</div>
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
@@ -108,13 +117,14 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src="{{asset('assets_2/vendor/jquery/jquery.min.js')}}"></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> --}}
 	<script src="{{asset('assets_2/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
-
+	@yield('linkfooter')
 </body>
 
 </html>

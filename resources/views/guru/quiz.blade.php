@@ -45,7 +45,7 @@
               <div class="col-md-4">
                   <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1" style="background-color:#EDE5E5;">Poin</span>
+                          <!-- <span class="input-group-text" id="basic-addon1" style="background-color:#EDE5E5;">Poin</span> -->
                       </div>
                       <div class="row" style="margin-bottom: 5px;">
                         <button class="btn btn-info" data-toggle="modal" data-target=".update_soal_quiz"

@@ -44,4 +44,14 @@ class User extends Authenticatable
     	return $this->hasOne(Siswa::class,'user_id');
     }
 
+    public function quiz_siswa()
+    {
+        return $this->hasMany(QuizSiswa::class, 'user_id', 'id');
+    }
+
+    public function quiz_jawab()
+    {
+        return $this->hasMany(QuizJawab::class, 'user_id', 'id');
+    }
+
 }

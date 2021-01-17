@@ -119,7 +119,7 @@
         <iframe src="{{url('asset-materi/'.$materi->video)}}" width="70%" height="500px"></iframe>
       </div>
 
-      <a href="{{route('getQuiz')}}" class="btn btn-primary navbar-btn-right">Quiz</a>
+      <a href="#" class="btn btn-primary navbar-btn-right" id="quiz">Quiz</a>
     <!-- </center> -->
   @endif
   </div>
@@ -136,5 +136,23 @@
 //             .catch( error => {
 //               console.error( error );
 //             } );
+
+  $(document).ready(function () {
+    $("#quiz").click(function (e) { 
+      swal({
+        title: "Yakin?",
+        text: "Mau memulai quiz ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          window.location = "/create-quiz";
+        } 
+      });
+    });
+    
+  });
 </script>
 @endsection

@@ -12,7 +12,7 @@ class QuizController extends Controller
     public function index()
     {
       $quiz = Quiz::all();
-      return view('quiz',compact(['quiz']));
+      return view('guru.quiz',compact(['quiz']));
     }
 
     public function storeSoalQuiz(Request $request)
