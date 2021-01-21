@@ -107,6 +107,7 @@ class QuizController extends Controller
 
     public function finishQuiz($quiz_siswa_id)
     {
-        return view('siswa.finish_quiz');
+        $quiz_jawab = QuizJawab::where('quiz_siswa_id',$quiz_siswa_id)->get();
+        return view('siswa.finish_quiz',compact(['quiz_jawab','quiz_siswa_id']));
     }
 }

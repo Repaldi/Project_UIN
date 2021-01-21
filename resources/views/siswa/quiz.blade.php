@@ -63,7 +63,7 @@ p{
     </div>
 <div>
 
-<div id=fullscreenExam>
+<div id=fullscreenExam style="display: none;">
   <div class="container">
 <br> <br>
 
@@ -103,7 +103,7 @@ $(document).ready(function(){
     const quiz_siswa_id = $('#quiz_siswa_id').val();
     $("#close_quiz").hide();
     var elem = document.querySelector("#fullscreenExam");
-    $("#fullscreenExam").hide();
+    // $("#fullscreenExam").hide();
 
     $("#start_quiz").click(function(e){
         $("#fullscreenExam").show();
@@ -169,6 +169,7 @@ $(document).ready(function(){
                         }
                     }else{
                         alert(response.pesan);
+                        $("#fullscreenExam").css('display','none');
                     }
                 }
             });

@@ -72,6 +72,4 @@ Route::get('quiz/finish/{quiz_siswa_id}','Siswa\QuizController@finishQuiz')->nam
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
     Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
     Route::get('/quiz/{quiz_siswa_id}','Siswa\QuizController@getQuizSiswa')->name('getQuizSiswa');
-
-
 });
