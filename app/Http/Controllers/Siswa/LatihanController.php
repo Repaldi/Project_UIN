@@ -103,9 +103,8 @@ class LatihanController extends Controller
         }
     }
 
-    public function finishLatihan($latihan_siswa_id)
+    public function finishLatihan()
     {
-        $latihan_jawab = LatihanJawab::where('latihan_siswa_id',$latihan_siswa_id)->get();
-        return view('siswa.finish_latihan',compact(['latihan_jawab','latihan_siswa_id']));
+        return view('siswa.index')->with('success','Anda telah selesai mengerjakan latihan');;
     }
 }
