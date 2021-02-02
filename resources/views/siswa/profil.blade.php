@@ -1,9 +1,5 @@
 @extends('layouts.master-dashboard-siswa')
 @section('content')   
-<!-- MAIN -->
-<div class="main">
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
 				<div class="container-fluid">
 					<div class="panel panel-profile">
 						<div class="clearfix">
@@ -227,8 +223,4 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- END MAIN CONTENT -->
-		</div>
-        <!-- END MAIN -->
 @stop

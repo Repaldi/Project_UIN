@@ -21,6 +21,9 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets_2/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets_2/img/favicon.png')}}">
     <script src="{{asset('assets_2/vendor/jquery/jquery-3.5.1.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+
 </head>
 
 <body>
@@ -92,7 +95,7 @@
 								</ul>
 							</div>
 						</li> -->
-						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
+						<li><a href="#" id="latihan"><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -117,14 +120,35 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> --}}
 	<script src="{{asset('assets_2/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets_2/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
+	<script>
+
+  $(document).ready(function () {
+    $("#latihan").click(function (e) { 
+      swal({
+        title: "Yakin?",
+        text: "Mau memulai Latihan ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          window.location = "/create-latihan";
+        } 
+      });
+    });
+    
+  });
+</script>
 	@yield('linkfooter')
+
+
 </body>
 
 </html>
