@@ -43,6 +43,9 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     Route::post('/profil','Guru\DashboardController@storeProfilGuru')->name('storeProfilGuru');
     Route::patch('/profil/{id}/update','Guru\DashboardController@updateProfilGuru', ['$id' =>'id'])->name('updateProfilGuru');
 
+    Route::get('/hasil-latihan','Guru\LatihanController@getLatihan')->name('getLatihan');
+    Route::get('hasil-latihan/{id}','Guru\LatihanController@showHasilLatihan')->name('showHasilLatihan');
+
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -80,7 +83,7 @@ Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], functio
     Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
     Route::get('/quiz/{quiz_siswa_id}','Siswa\QuizController@getQuizSiswa')->name('getQuizSiswa');
 
-    
+
     //latihan
     Route::get('/latihan/{latihan_siswa_id}','Siswa\LatihanController@getLatihanSiswa')->name('getLatihanSiswa');
 });

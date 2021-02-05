@@ -7,9 +7,14 @@ $pilgan = Pilgan::where('isdelete',false)->get();
 <div class="container-fluid">
 <div class="panel panel-headline">
         <div class="panel-heading">
-            <h3 class="panel-title">Buat Soal Latihan</h3>
-            <button type="submit" class="btn btn-info" style="color:black;float:right; margin:10px;"data-toggle="modal" data-target=".create_modal_pilgan"> Tambah Soal</button>
-            <p class="panel-subtitle">*Listrik Dinamis</p>
+            <div class="col-md-8">
+                <h3 class="panel-title">Buat Soal Latihan</h3>
+            </div>
+            <div class="col-md-4">
+                <a href="{{route('getLatihan')}}" class="btn btn-primary">Hasil Latihan</a>
+                <a href="#" class="btn btn-primary" style="color:black;float:right;"data-toggle="modal" data-target=".create_modal_pilgan"> Tambah Soal</a>
+            </div>
+
         </div>
 
         <div class="panel-body">
@@ -94,10 +99,10 @@ $(document).ready(function(){
 <div class="row">
 <div class="col-md-6">
 
-<div class="form-group">
+{{-- <div class="form-group">
 <label for="Pertanyaan" class="col-form-label">Poin</label>
 <input type="text" class="form-control" name="poin"  id="poin">
-</div>
+</div> --}}
 
 <div class="form-group">
 <label for="Pertanyaan" class="col-form-label">Pertanyaan</label>
@@ -233,10 +238,10 @@ ClassicEditor
                 <div class="row">
                         <div class="col-md-6">
                                 <input type="hidden" class="form-control" name="id"  id="pilgan_id_update">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                         <label for="Pertanyaan" class="col-form-label">Poin</label>
                                         <input type="text" class="form-control" name="poin"  id="poin_update">
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                         <label for="Pertanyaan" class="col-form-label">Pertanyaan</label>
