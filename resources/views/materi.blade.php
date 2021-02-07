@@ -10,6 +10,20 @@
         </ul>
     </div>
 @endif
+<style>
+    .panel{
+        background: url('images/background.jpg');
+    }
+
+    p{
+        color: black;
+
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        color: black;
+    }
+</style>
 <div class="panel">
   <div class="panel-heading" style="margin-bottom:20px;">
     <div class="col-md-6">
@@ -138,7 +152,7 @@
 //             } );
 
   $(document).ready(function () {
-    $("#quiz").click(function (e) { 
+    $("#quiz").click(function (e) {
       swal({
         title: "Yakin?",
         text: "Mau memulai quiz ?",
@@ -149,10 +163,10 @@
       .then((willDelete) => {
         if (willDelete) {
           window.location = "/create-quiz";
-        } 
+        }
       });
     });
-    
+
   });
 </script>
 @endsection

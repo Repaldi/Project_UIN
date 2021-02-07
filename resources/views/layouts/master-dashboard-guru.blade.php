@@ -78,6 +78,7 @@
 						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
 						<li><a href="{{route('materi')}}" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
+                        <li><a href="{{route('getEbook')}}" class=""><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
 						<li><a href="{{route('buatSoal')}}" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
 					</ul>
 				</nav>

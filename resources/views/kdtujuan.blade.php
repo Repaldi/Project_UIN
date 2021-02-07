@@ -1,6 +1,6 @@
 @extends('layouts.master-dashboard-guru')
 @section('title','Kompetensi Dasar & Tujuan')
-@section('content')    
+@section('content')
 @if(auth()->user()->role==1)
 <div class="panel">
     @if ($errors->any())
@@ -28,29 +28,29 @@
         </div>
         <div class="panel-body" style="margin-top: 10px;">
             @if($kdtujuan == null)
-            
+
                 <div class="panel-heading">
                     <h3 class="panel-title">Kompetensi Dasar</h3>
                 </div>
                 <div class="row mt-5" style="margin-top:0px;">
                     <textarea class="form-control" name="kd" rows="auto" cols="auto" id="kd"></textarea>
                 </div>
-        
-            
+
+
                 <div class="panel-heading" style="margin-top:10px;">
                     <h3 class="panel-title">Tujuan</h3>
                 </div>
                 <div class="row mt-5" style="margin-top:0px;">
                     <textarea class="form-control" name="tujuan" rows="auto" cols="auto" id="tujuan"></textarea>
                 </div>
-            
-            @else 
+
+            @else
                 <div class="panel-heading">
                     <h3 class="panel-title">Kompetensi Dasar</h3>
                 </div>
                 <div class="row mt-5" style="margin-top:0px;">
                     <textarea class="form-control" name="kd" rows="auto" cols="auto" id="kd">{!!$kdtujuan->kd!!}</textarea>
-                </div>    
+                </div>
                 <div class="panel-heading" style="margin-top:10px;">
                     <h3 class="panel-title">Tujuan</h3>
                 </div>
@@ -87,6 +87,7 @@
 @endif
 @endsection
 @section('linkfooter')
+<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 <script>
 ClassicEditor
             .create( document.querySelector( '#kd' ) )
