@@ -66,6 +66,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/create-quiz','Siswa\QuizController@createQuiz');
 
     Route::get('/create-latihan','Siswa\LatihanController@createLatihan');
+
+    Route::get('/forum', 'Guru\ForumController@forum')->name('forum');
+    Route::post('/store/forum', 'Guru\ForumController@storeForum')->name('storeForum');
+    Route::get('forum/{id}','Guru\ForumController@showForum')->name('showForum');
+    Route::post('/store/forumJawab', 'Guru\ForumController@storeForumJawab')->name('storeForumJawab');
 });
 
 Route::get('pagination/fetch_data','Siswa\QuizController@fetch_data');
@@ -81,6 +86,7 @@ Route::get('latihan/finish/{latihan_siswa_id}','Siswa\LatihanController@finishLa
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
     Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
+   
     Route::get('/quiz/{quiz_siswa_id}','Siswa\QuizController@getQuizSiswa')->name('getQuizSiswa');
 
 

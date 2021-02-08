@@ -37,11 +37,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function guru() {
+    public function guru() 
+    {
     	return $this->hasOne(Guru::class);
     }
-    public function siswa() {
+    public function siswa() 
+    {
     	return $this->hasOne(Siswa::class,'user_id');
+    }
+
+    public function forum() 
+    {
+    	return $this->hasMany(Forum::class,'user_id','id');
     }
 
     public function quiz_siswa()

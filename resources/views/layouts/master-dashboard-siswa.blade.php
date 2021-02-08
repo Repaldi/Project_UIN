@@ -96,6 +96,7 @@
 							</div>
 						</li> -->
 						<li><a href="#" id="latihan"><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
+						<li><a href="{{route('forum')}}" class=""><i class="lnr lnr-dice"></i> <span>Diskusi</span></a></li>
 					</ul>
 				</nav>
 			</div>
