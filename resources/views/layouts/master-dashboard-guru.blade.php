@@ -80,7 +80,7 @@
 						<li><a href="{{route('materi')}}" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
                         <li><a href="{{route('getEbook')}}" class=""><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
 						<li><a href="{{route('buatSoal')}}" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
-						<li><a href="" class="{{route('forum')}}"><i class="lnr lnr-dice"></i> <span>Diskusi</span></a></li>
+						<li><a href="#" class="{{route('forum')}}"><i class="lnr lnr-bubble"></i> <span>Diskusi</span></a></li>
 					</ul>
 				</nav>
 			</div>

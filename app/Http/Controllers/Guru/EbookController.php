@@ -74,4 +74,12 @@ class EbookController extends Controller
 
         return redirect()->back()->with('success-edit','Text');
     }
+
+    public function deleteEbook($id)
+    {
+        $ebook = Ebook::find($id);
+        $ebook->delete();
+
+        return redirect()->back();
+    }
 }
