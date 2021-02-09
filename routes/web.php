@@ -43,9 +43,12 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     Route::post('/profil','Guru\DashboardController@storeProfilGuru')->name('storeProfilGuru');
     Route::patch('/profil/{id}/update','Guru\DashboardController@updateProfilGuru', ['$id' =>'id'])->name('updateProfilGuru');
 
-    Route::get('/hasil-latihan','Guru\LatihanController@getLatihan')->name('getLatihan');
+    //route untuk get latihan_siswa per latihan
+    Route::get('/hasil-latihan_siswa-per-latihan/{id}','Guru\LatihanController@getLatihanSiswaPerLatihan')->name('getLatihanSiswaPerLatihan');
     Route::get('hasil-latihan/{id}','Guru\LatihanController@showHasilLatihan')->name('showHasilLatihan');
     Route::get('/e-book/delete/{id}','Guru\EbookController@deleteEbook')->name('deleteEbook');
+
+    Route::post('/latihan','Guru\LatihanController@storeLatihan')->name('storeLatihan');
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -53,7 +56,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/petunjuk','Guru\PetunjukController@storePetunjuk')->name('storePetunjuk');
     Route::get('/kd&tujuan','Guru\KDTujuanController@index')->name('kdTujuan');
     Route::post('/kd&tujuan','Guru\KDTujuanController@storeKDTujuan')->name('storeKDTujuan');
-    Route::get('/buatSoal','Guru\SoalController@index')->name('buatSoal');
+    Route::get('/latihan','Guru\SoalController@getLatihan')->name('getLatihan');
     Route::post('/buatSoal','Guru\SoalController@storeSoal')->name('storeSoal');
     Route::patch('/buatSoal','Guru\SoalController@updateSoal')->name('updateSoal');
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
@@ -75,6 +78,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/e-book','Guru\EbookController@getEbook')->name('getEbook');
     Route::post('/e-book','Guru\EbookController@storeEbook')->name('storeEbook');
     Route::patch('/e-book','Guru\EbookController@updateEbook')->name('updateEbook');
+
 
 });
 

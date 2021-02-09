@@ -31,12 +31,12 @@ class LatihanController extends Controller
         $soal_latihan = Pilgan::orderBy('id','asc')->paginate(1);
         $latihan_siswa_id = $latihan_siswa_id;
         return view('siswa.latihan',compact(['soal_latihan','latihan_siswa_id']));
-     
+
     }
 
     public function fetch_data_latihan(Request $request)
     {
-      
+
         $latihan_siswa_id = $request->latihan_siswa_id;
         $soal_latihan = Pilgan::orderBy('id','asc')->paginate(1);
         if($request->ajax())
@@ -103,8 +103,12 @@ class LatihanController extends Controller
         }
     }
 
-    public function finishLatihan()
+    public function finishLatihan($latihan_siswa_id)
     {
+        $latihan_siswa = LatihanSiswa::find($latihan_siswa_id);
+        $latihan_siswa->update([
+            'status' => true
+        ]);
         return view('siswa.index')->with('success','Anda telah selesai mengerjakan latihan');;
     }
 }
