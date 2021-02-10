@@ -6,7 +6,6 @@
           <div class="row align-items-end justify-content-center text-center">
             <div class="col-lg-7">
               <h2 class="mb-0">Tentang</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
             </div>
           </div>
         </div>
@@ -27,11 +26,13 @@
         <div class="row">
               <div class="col-lg-4">
                 <h2 class="section-title-underline">
-                  <span>Nama Aplikasi</span>
+                  <span>Media Pembelajaran Fisika</span>
                 </h2>
               </div>
               <div class="col-lg-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, iure dolorum! Nam veniam tempore tenetur aliquam architecto, hic alias quia quisquam, obcaecati laborum dolores. Ex libero cumque veritatis numquam placeat?</p>
+                <p>
+                MEDIA PEMBELAJARAN     FISIKA     BERBASIS     WEB     PADA     POKOK BAHASAN     LISTRIK     DINAMISUNTUK     SISWASEKOLAH MENENGAH ATASNEGERI 10 KOTAJAMBI.
+                </p>
               </div>
               <div class="col-lg-4">
                 <p>Nam veniam tempore tenetur aliquam
