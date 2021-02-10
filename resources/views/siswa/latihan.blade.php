@@ -1,5 +1,5 @@
 @extends('layouts.master-dashboard-siswa')
-@section('title','Materi')
+@section('title','Kerjakan Latihan')
 @section('content')
 <style>
 @media screen and (max-width: 1000px) {

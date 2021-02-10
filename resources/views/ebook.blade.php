@@ -40,7 +40,7 @@
                     <td class="text-center">
                         <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
                         <a href="#" class="btn btn-warning edit-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}" data-penulis="{{$item->penulis}}" data-tahun="{{$item->tahun}}" data-toggle="modal" data-target="#edit_ebook"> <i class="lnr lnr-edit"></i> Edit </a>
-                        <a href="" class="btn btn-danger">Hapus</a>
+                        <a href="#" class="btn btn-danger hapus-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
@@ -50,12 +50,44 @@
     </div>
 </div>
 @elseif(auth()->user()->role == 2)
-
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Data Ebook</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Judul</th>
+                    <th>Penulis</th>
+                    <th>Tahun</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if($ebook->count() != 0)
+                @foreach ($ebook as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->judul}}</td>
+                    <td>{{$item->penulis}}</td>
+                    <td>{{$item->tahun}}</td>
+                    <td class="text-center">
+                        <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
+                    </td>
+                </tr>
+                @endforeach
+                @endif
+            </tbody>
+        </table>
+    </div>
+</div>
 @endif
 @endsection
 
 @section('linkfooter')
-    <!-- Modal Create Soal Quiz -->
+    <!-- Modal TAMBAH EBOOK -->
 <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="tambah_ebook">
     <div class="modal-dialog modal-md-12" >
       <div class="modal-content">
@@ -94,8 +126,8 @@
 
 
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-info" >Buat Soal</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-info" >Simpan</button>
           </div>
         </form>
       </div>
@@ -142,8 +174,8 @@
 
 
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-info" >Buat Soal</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-info" >Simpan</button>
           </div>
         </form>
       </div>
@@ -169,6 +201,25 @@
 
         });
     });
+
+    $('.hapus-ebook').click(function(){
+			const ebook_id = $(this).data('ebook_id');
+			const judul = $(this).data('judul');
+
+            swal({
+                title: "Hapus?",
+                text: "Yakin mau menghapus E-Book "+ judul + " ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = '/guru/e-book/delete/'+ebook_id;
+                }
+            });
+
+		});
 
 </script>
 

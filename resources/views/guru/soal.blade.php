@@ -4,6 +4,46 @@ use App\Pilgan;
 $pilgan = Pilgan::where('isdelete',false)->get();
 ?>
 @section('content')
+
+@if(auth()->user()->role == 1)
+<div class="panel">
+    <div class="panel-heading" style="margin-bottom:20px;">
+      <div class="col-md-6">
+        <h3 class="panel-title">Daftar Latihan</h3>
+      </div>
+      <div class="col-md-6">
+          <a href="#" class="btn btn-primary navbar-btn-right" data-toggle="modal" data-target="#buat_latihan">Buat Latihan Baru</a>
+      </div>
+    </div>
+    <div class="panel-body">
+
+      <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Latihan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if($latihan->count() != 0)
+                @foreach($latihan as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->nama_latihan}}</td>
+                    <td>
+                        <a href="{{route('getLatihanSiswaPerLatihan',$item->id)}}" class="btn btn-info">Buka</a>
+                    </td>
+                </tr>
+                @endforeach
+                @endif
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
 <div class="container-fluid">
 <div class="panel panel-headline">
         <div class="panel-heading">
@@ -11,7 +51,7 @@ $pilgan = Pilgan::where('isdelete',false)->get();
                 <h3 class="panel-title">Buat Soal Latihan</h3>
             </div>
             <div class="col-md-4">
-                <a href="{{route('getLatihan')}}" class="btn btn-primary">Hasil Latihan</a>
+
                 <a href="#" class="btn btn-primary" style="color:black;float:right;"data-toggle="modal" data-target=".create_modal_pilgan"> Tambah Soal</a>
             </div>
 
@@ -50,6 +90,54 @@ $pilgan = Pilgan::where('isdelete',false)->get();
         </div>
 </div>
 </div>
+
+@else
+<div class="panel">
+    <div class="panel-heading" style="margin-bottom:20px;">
+      <div class="col-md-6">
+        <h3 class="panel-title">Daftar Latihan</h3>
+      </div>
+
+    </div>
+    <div class="panel-body">
+
+      <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Latihan</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if($latihan->count() != 0)
+                @foreach($latihan as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->nama_latihan}}</td>
+                    <td>
+                        @if ($item->latihan_siswa->status == false)
+                            Belum dikerjakan
+                        @else
+                            Telah dikerjakan
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->latihan_siswa->status == false)
+                        <a href="{{route('getLatihanSiswa',$item->latihan_siswa->id)}}" class="btn btn-info">Buka</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+                @endif
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+@endif
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -75,12 +163,64 @@ $(document).ready(function(){
         $('#foto_update').attr("src", "{{url('images/soal')}}"+"/"+foto_update);
         $('#kunci_update').val(kunci_update);
     });
+
+    // $("#buat_latihan").click(function (e) {
+    //     e.preventDefault();
+    //     swal({
+    //         title: "Adakan Latihan?",
+    //         text: " Apakah yakin mau mengadakan latihan baru?",
+    //         icon: "warning",
+    //         buttons: true,
+    //         dangerMode: false,
+    //     })
+    //     .then((willDelete) => {
+    //         if (willDelete) {
+
+    //         }
+    //     });
+    // });
+
 });
 </script>
 @endsection
 @section('linkfooter')
 
+<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="buat_latihan">
+    <div class="modal-dialog modal-md-12" >
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h5 class="modal-title " id="exampleModalLabel"> Adakan Latihan Baru</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('storeLatihan')}}" enctype="multipart/form-data" method="post">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="judul" class="col-form-label">Nama Latihan</label>
+                    <input class="form-control" type="text" name="nama_latihan" placeholder="Contoh: Latihan 1">
+                </div>
+            </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-info" >Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
 
+@if(Session::has('success-create'))
+<script>
+    swal({
+        title: "Berhasil",
+        text: "Berhasil membuat latihan baru",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+@endif
 
 <!-- Create Modal (Pilgan)-->
 <div class="modal fade create_modal_pilgan"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

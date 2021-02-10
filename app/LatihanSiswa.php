@@ -14,6 +14,11 @@ class LatihanSiswa extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function latihan()
+    {
+        return $this->belongsTo(Latihan::class);
+    }
+
     public function latihan_jawab()
     {
         return $this->hasMany(LatihanJawab::class, 'latihan_siswa_id', 'id');

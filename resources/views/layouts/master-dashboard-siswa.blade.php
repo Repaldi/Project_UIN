@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>@yield('title')</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -95,8 +95,9 @@
 								</ul>
 							</div>
 						</li> -->
-						<li><a href="#" id="latihan"><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
-						<li><a href="{{route('forum')}}" class=""><i class="lnr lnr-dice"></i> <span>Diskusi</span></a></li>
+						<li><a href="{{route('getLatihan')}}" id="latihan"><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
+                        <li><a href="{{route('getEbook')}}" class=""><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
+						<li><a href="{{route('forum')}}" class=""><i class="lnr lnr-bubble"></i> <span>Diskusi</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -129,23 +130,23 @@
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
 	<script>
 
-  $(document).ready(function () {
-    $("#latihan").click(function (e) { 
-      swal({
-        title: "Yakin?",
-        text: "Mau memulai Latihan ?",
-        icon: "warning",
-        buttons: true,
-        dangerMode: false,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          window.location = "/create-latihan";
-        } 
-      });
-    });
-    
-  });
+//   $(document).ready(function () {
+//     $("#latihan").click(function (e) {
+//       swal({
+//         title: "Yakin?",
+//         text: "Mau memulai Latihan ?",
+//         icon: "warning",
+//         buttons: true,
+//         dangerMode: false,
+//       })
+//       .then((willDelete) => {
+//         if (willDelete) {
+//           window.location = "/create-latihan";
+//         }
+//       });
+//     });
+
+//   });
 </script>
 	@yield('linkfooter')
 

@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
+use App\Latihan;
 use Illuminate\Http\Request;
 use App\Pilgan;
 use File;
 
 class SoalController extends Controller
 {
-    public function index()
+    public function getLatihan()
     {
         $pilgan = Pilgan::where('isdelete',false)->get();
-        return view('guru/soal', compact('pilgan'));
+        $latihan = Latihan::all();
+        return view('guru/soal', compact(['pilgan','latihan']));
     }
 
     public function storeSoal(Request $request)
