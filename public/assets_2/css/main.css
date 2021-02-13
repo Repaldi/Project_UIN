@@ -1176,7 +1176,10 @@ ul.activity-list > li {
     background-color: rgba(0, 0, 0, 0.2); }
   .profile-header .profile-main {
     position: relative;
-    padding: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
     background-image: url("../../assets/img/profile-bg.png");
     background-repeat: no-repeat;
     background-size: cover; }
@@ -1226,7 +1229,7 @@ ul.activity-list > li {
       display: none; } }
 
 .profile-detail {
-  padding-bottom: 30px; }
+  padding-bottom: 50px; }
 
 .profile-info {
   padding: 0 20px;
@@ -1663,7 +1666,7 @@ ul.activity-list > li {
   border-bottom: 1px solid #eaeaea; }
 
 .awards {
-  margin-bottom: 50px; }
+  margin-bottom: 0px; }
   .awards div[class^="col-"] {
     text-align: center; }
 
