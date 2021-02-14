@@ -102,6 +102,8 @@ Route::get('latihan/finish/{latihan_siswa_id}','Siswa\LatihanController@finishLa
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
     Route::get('/profil', 'Siswa\DashboardController@profilSiswa')->name('profilSiswa');
+    Route::post('/profil','Siswa\DashboardController@storeProfilSiswa')->name('storeProfilSiswa');
+    Route::patch('/profil/{id}/update','Siswa\DashboardController@updateProfilSiswa', ['$id' =>'id'])->name('updateProfilSiswa');
 
     Route::get('/quiz/{quiz_siswa_id}','Siswa\QuizController@getQuizSiswa')->name('getQuizSiswa');
     //latihan
