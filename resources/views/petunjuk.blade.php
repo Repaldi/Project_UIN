@@ -1,6 +1,20 @@
 @extends('layouts.master-dashboard-guru')
 @section('title','Petunjuk')
-@section('content')    
+@section('content')
+<style>
+    .main{
+        background: url('/images/background2.jpeg') !important;
+    }
+    .panel{
+        background: url('/images/background2.jpeg') !important;
+        /* background-color: red; */
+    }
+
+    span,h1,h2,h3,h4,h5,h6,p,b,li{
+    color: #fffefa;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+</style>
 @if(auth()->user()->role==1)
 <div class="panel">
     <form action="{{route('storePetunjuk')}}" method="post">
@@ -20,7 +34,7 @@
             <div class="row mt-5" style="margin-top:10px;">
                 <textarea class="form-control" name="petunjuk" rows="auto" cols="auto" id="petunjuk"></textarea>
             </div>
-            @else 
+            @else
             <div class="row mt-5" style="margin-top:10px;">
                 <textarea class="form-control" name="petunjuk" rows="auto" cols="auto" id="petunjuk">{!!$petunjuk->petunjuk!!}</textarea>
             </div>

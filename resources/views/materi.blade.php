@@ -11,18 +11,17 @@
     </div>
 @endif
 <style>
+    .main{
+        background: url('/images/background2.jpeg') !important;
+    }
     .panel{
-        background: url('images/background.jpg');
-        background-color: red;
+        background: url('/images/background2.jpeg') !important;
+        /* background-color: red; */
     }
 
-    p{
-        color: black;
-
-    }
-
-    h1,h2,h3,h4,h5,h6{
-        color: black;
+    span,h1,h2,h3,h4,h5,h6,p,b{
+    color: #fffefa;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
 </style>
 <div class="panel">

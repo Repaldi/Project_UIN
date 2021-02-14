@@ -48,21 +48,25 @@
             <h3 class="panel-title">Materi</h3>
         </div>
         <div class="panel-body">
-            <div class="row">
-                @foreach ($materi as $item)
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Judul Materi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($materi as $item)
 
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">{{$item->judul_materi}}</h3>
-                            <p class="card-text">{!!Str::limit($item->materi,20)!!}</p>
-                            <a href="{{route('showMateri',$item->id)}}">Buka</a>
-
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+                    <tr>
+                        <td>{{$item->judul_materi}}</td>
+                        <td>
+                            <a href="{{route('showMateri',$item->id)}}" class="btn btn-primary">Buka</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- END TABLE STRIPED -->

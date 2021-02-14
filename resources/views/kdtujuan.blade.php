@@ -1,6 +1,20 @@
 @extends('layouts.master-dashboard-guru')
 @section('title','Kompetensi Dasar & Tujuan')
 @section('content')
+<style>
+    .main{
+        background: url('/images/background2.jpeg') !important;
+    }
+    .panel{
+        background: url('/images/background2.jpeg') !important;
+        /* background-color: red; */
+    }
+
+    span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
+    color: #fffefa;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+</style>
 @if(auth()->user()->role==1)
 <div class="panel">
     @if ($errors->any())

@@ -1,68 +1,28 @@
 @extends('layouts.master-dashboard-siswa')
 
-@section('content')    
+@section('content')
+<style>
+    .main{
+        background: url('/images/Physics-science-seamless-pattern-background.jpg');
+    }
+
+    h1{
+        color: #fffefa;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        /* outline-style: solid;
+        outline-color: white; */
+    }
+</style>
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>{{session('success')}}</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-    </div> 
+    </div>
 @endif
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
-				<div class="container-fluid">
-					<!-- OVERVIEW -->
-					<div class="panel panel-headline">
-						<div class="panel-heading">
-							<h3 class="panel-title">Weekly Overview</h3>
-							<p class="panel-subtitle">Period: Oct 14, 2016 - Oct 21, 2016</p>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="metric">
-										<span class="icon"><i class="fa fa-download"></i></span>
-										<p>
-											<span class="number">1,252</span>
-											<span class="title">Downloads</span>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="metric">
-										<span class="icon"><i class="fa fa-shopping-bag"></i></span>
-										<p>
-											<span class="number">203</span>
-											<span class="title">Sales</span>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="metric">
-										<span class="icon"><i class="fa fa-eye"></i></span>
-										<p>
-											<span class="number">274,678</span>
-											<span class="title">Visits</span>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="metric">
-										<span class="icon"><i class="fa fa-bar-chart"></i></span>
-										<p>
-											<span class="number">35%</span>
-											<span class="title">Conversions</span>
-										</p>
-									</div>
-								</div>
-							</div>
-							
-							</div>
-						</div>
-					</div>
-					<!-- END OVERVIEW -->
-					</div>
-				</div>
+	<h1>Selamat datang di portal pembelajaran Fisika</h1>
 @endsection
