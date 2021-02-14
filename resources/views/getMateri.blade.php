@@ -56,7 +56,8 @@
                         <div class="card-body">
                             <h3 class="card-title">{{$item->judul_materi}}</h3>
                             <p class="card-text">{!!Str::limit($item->materi,20)!!}</p>
-                            <a href="{{route('showMateri',$item->id)}}" class="btn btn-primary">Buka</a>
+                            <a href="{{route('showMateri',$item->id)}}">Buka</a>
+
                         </div>
                     </div>
                 </div>

@@ -140,7 +140,7 @@ $(document).ready(function(){
                 }
             });
 
-            if (page == 4) {
+            if (page == 10) {
             $("#close_quiz").show();
             }else{
             $("#close_quiz").hide();

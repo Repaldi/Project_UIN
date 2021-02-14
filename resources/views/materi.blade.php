@@ -11,9 +11,10 @@
     </div>
 @endif
 <style>
-    /* .panel{
+    .panel{
         background: url('images/background.jpg');
-    } */
+        background-color: red;
+    }
 
     p{
         color: black;
@@ -140,7 +141,7 @@
 <script>
     swal({
         title: "Good job!",
-        text: "Berhasil menambah gambar",
+        text: "Berhasil menambah sub-materi",
         icon: "success",
         button: "OK",
     });

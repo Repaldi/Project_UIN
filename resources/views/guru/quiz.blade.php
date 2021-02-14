@@ -277,6 +277,32 @@
   </div>
 </div>
 
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (Session::has('success-add'))
+<script>
+    swal({
+        title: "Good job!",
+        text: "Berhasil menambah soal quiz",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+
+@endif
+
+@if (Session::has('error'))
+<script>
+    swal({
+        title: "Oops!",
+        text: "Soal sudah mencapai 10, tidak bisa menambah soal lagi",
+        icon: "error",
+        button: "OK",
+    });
+</script>
+
+@endif
 <script>
 $(document).ready(function(){
     $(document).on('click','#updateSoalQuiz', function(){
@@ -412,3 +438,5 @@ ClassicEditor
             } );
 </script>
 @stop
+
+

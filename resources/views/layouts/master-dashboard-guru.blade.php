@@ -75,12 +75,12 @@
 					<ul class="nav">
 						<li><a href="{{route('home')}}" class="{{(request()->is('home')) ? 'active' : ''}}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="{{route('profilGuru')}}" class="{{(request()->is('/profil')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
-						<li><a href="{{route('petunjuk')}}" class=""><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
-						<li><a href="{{route('kdTujuan')}}" class=""><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
-						<li><a href="{{route('materi')}}" class=""><i class="lnr lnr-book"></i> <span>Materi</span></a></li>
-                        <li><a href="{{route('getEbook')}}" class=""><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
-						<li><a href="{{route('getLatihan')}}" class=""><i class="lnr lnr-dice"></i> <span>Latihan</span></a></li>
-						<li><a href="{{route('forum')}}" class=""><i class="lnr lnr-dice"></i> <span>Diskusi</span></a></li>
+						<li><a href="{{route('petunjuk')}}" class="{{(request()->is('petunjuk*')) ? 'active' : ''}}"><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
+						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
+						<li><a href="{{route('materi')}}" class="{{(request()->is('materi*')) ? 'active' : ''}}"><i class="lnr lnr-list"></i> <span>Materi</span></a></li>
+                        <li><a href="{{route('getEbook')}}" class="{{(request()->is('e-book*')) ? 'active' : ''}}"><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
+						<li><a href="{{route('getLatihan')}}" class="{{(request()->is('latihan*')) ? 'active' : ''}}"><i class="lnr lnr-paperclip"></i> <span>Latihan</span></a></li>
+						<li><a href="{{route('forum')}}" class="{{(request()->is('forum*')) ? 'active' : ''}}"><i class="lnr lnr-bubble"></i> <span>Diskusi</span></a></li>
 					</ul>
 				</nav>
 			</div>

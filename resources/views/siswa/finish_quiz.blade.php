@@ -141,6 +141,7 @@
                         @endif
                         <div class="text-center" style="margin-top: 10px;">
                             <button class="btn btn-primary" id="lihat_hasil"> Lihat hasil </button>
+                            <a href="{{route('home')}}" class="btn btn-primary">Dashboard</a>
                         </div>
 
 

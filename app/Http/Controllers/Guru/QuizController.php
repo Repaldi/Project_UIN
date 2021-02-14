@@ -20,7 +20,7 @@ class QuizController extends Controller
       $hitung = Quiz::count();
       if ($hitung >=10) {
         Alert::warning('Tidak Bisa', 'Soal sudah mencapai 10. Tidak bisa ditambah lagi');
-        return redirect()->back();
+        return redirect()->back()->with('error','Text');
       }
       $request->validate([
         'pertanyaan'=>'required',
@@ -52,8 +52,7 @@ class QuizController extends Controller
         'kunci'=>$request->kunci
       ]);
 
-      Alert::success('Berhasil menambah soal quiz');
-      return redirect()->back();
+      return redirect()->back()->with('success-add','Text');
     }
 
     public function updateSoalQuiz(Request $request)

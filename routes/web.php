@@ -78,9 +78,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/create-latihan','Siswa\LatihanController@createLatihan');
 
     Route::get('/forum', 'Guru\ForumController@forum')->name('forum');
-    Route::post('/store/forum', 'Guru\ForumController@storeForum')->name('storeForum');
+    Route::post('/forum/store', 'Guru\ForumController@storeForum')->name('storeForum');
     Route::get('forum/{id}','Guru\ForumController@showForum')->name('showForum');
-    Route::post('/store/forumJawab', 'Guru\ForumController@storeForumJawab')->name('storeForumJawab');
+    Route::post('/forum/store/forumJawab', 'Guru\ForumController@storeForumJawab')->name('storeForumJawab');
 
     Route::get('/e-book','Guru\EbookController@getEbook')->name('getEbook');
     Route::post('/e-book','Guru\EbookController@storeEbook')->name('storeEbook');
