@@ -1,5 +1,6 @@
 @extends('layouts.master-front')
-@section('content')    
+@section('title','Materi')
+@section('content')
     <div class="hero-slide owl-carousel site-blocks-cover">
       <div class="intro-section" style="background-image: url('images/hero_1.jpg');">
         <div class="container">

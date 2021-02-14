@@ -11,9 +11,9 @@
     </div>
 @endif
 <style>
-    .panel{
+    /* .panel{
         background: url('images/background.jpg');
-    }
+    } */
 
     p{
         color: black;
@@ -39,14 +39,14 @@
     @if($materi == null)
     <form action="{{route('storeMateri')}}" method="post" enctype="multipart/form-data">
       @csrf
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-lg-2">
           Gambar
         </div>
         <div class="col-lg-10">
           <input type="file" class="form-control" name="gambar">
         </div>
-      </div>
+      </div> --}}
       <div class="row" style="margin-top:10px;">
         <div class="col-lg-2">
           Video
@@ -73,19 +73,12 @@
     <form action="{{route('updateMateri')}}" method="post" enctype="multipart/form-data">
       @csrf @method('PATCH')
       <div class="row">
+        <input type="hidden" name="materi_id" value="{{$materi->id}}">
         <div class="col-lg-2">
-          Gambar
+          Judul Materi
         </div>
         <div class="col-lg-10">
-          <input type="file" class="form-control" name="gambar" value="{{url('asset-materi'.$materi->gambar)}}">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-2">
-
-        </div>
-        <div class="col-lg-10">
-          <img src="{{url('asset-materi/'.$materi->gambar)}}" alt="" style="width: 200px; height: 160;">
+          <input type="text" class="form-control" name="judul_materi" value="{{$materi->judul_materi}}">
         </div>
       </div>
       <div class="row" style="margin-top:20px;">
@@ -121,7 +114,7 @@
     <a href="{{route('getQuiz')}}" class="btn btn-primary navbar-btn-left" style="width: 105px; margin-top: 10px;">Quiz</a>
     @endif
   @else
-    <h2>Topik Materi</h2>
+    <h2>{{$materi->judul_materi}}</h2>
     <!-- <center> -->
       <div class="text-center">
         <img src="{{url('asset-materi/'.$materi->gambar)}}" alt="" style="width: 70%; height: auto;">
@@ -141,6 +134,21 @@
 @endsection
 @section('linkfooter')
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (Session::has('success'))
+<script>
+    swal({
+        title: "Good job!",
+        text: "Berhasil menambah gambar",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+
+@endif
+
+
 <script>
 // ClassicEditor
 //             .create( document.querySelector( '#materi' ) )

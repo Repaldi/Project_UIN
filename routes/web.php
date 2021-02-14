@@ -48,7 +48,14 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     Route::get('hasil-latihan/{id}','Guru\LatihanController@showHasilLatihan')->name('showHasilLatihan');
     Route::get('/e-book/delete/{id}','Guru\EbookController@deleteEbook')->name('deleteEbook');
 
+    Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
+    Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
+
+    Route::post('/materi/new','Guru\MateriController@storeMateriBaru')->name('storeMateriBaru');
+
+
     Route::post('/latihan','Guru\LatihanController@storeLatihan')->name('storeLatihan');
+    Route::get('/materi/{id}','Guru\MateriController@showMateriGuru')->name('showMateriGuru');
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -59,9 +66,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/latihan','Guru\SoalController@getLatihan')->name('getLatihan');
     Route::post('/buatSoal','Guru\SoalController@storeSoal')->name('storeSoal');
     Route::patch('/buatSoal','Guru\SoalController@updateSoal')->name('updateSoal');
+
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
-    Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
-    Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
+    Route::get('/materi/{id}','Guru\MateriController@showMateri')->name('showMateri');
     Route::get('/quiz','Guru\QuizController@index')->name('getQuiz');
     Route::post('/quiz','Guru\QuizController@storeSoalQuiz')->name('storeSoalQuiz');
     Route::patch('/quiz','Guru\QuizController@updateSoalQuiz')->name('updateSoalQuiz');
