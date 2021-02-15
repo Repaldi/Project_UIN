@@ -10,7 +10,7 @@
         /* background-color: red; */
     }
 
-    span,h1,h2,h3,h4,h5,h6,p,b,li{
+    span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
     color: #fffefa;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }

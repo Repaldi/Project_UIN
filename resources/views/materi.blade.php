@@ -16,7 +16,6 @@
     }
     .panel{
         background: url('/images/background2.jpeg') !important;
-        /* background-color: red; */
     }
 
     span,h1,h2,h3,h4,h5,h6,p,b{
@@ -28,6 +27,7 @@
   <div class="panel-heading" style="margin-bottom:20px;">
     <div class="col-md-6">
       <h3 class="panel-title">Halaman Materi</h3>
+      <img src="{{asset('images/background.jpg')}}" alt="" style="width: 300px;">
     </div>
     <div class="col-md-6">
 
@@ -37,6 +37,7 @@
   <div class="panel-body">
   @if(auth()->user()->role == 1)
     @if($materi == null)
+
     <form action="{{route('storeMateri')}}" method="post" enctype="multipart/form-data">
       @csrf
       {{-- <div class="row">
