@@ -3,11 +3,10 @@
 @section('content')
 <style>
     .main{
-        background: url('/images/background2.jpeg') !important;
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
     .panel{
-        background: url('/images/background2.jpeg') !important;
-        /* background-color: red; */
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
 
     span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
@@ -59,6 +58,7 @@
 @endif
 @endsection
 @section('linkfooter')
+<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 <script>
 ClassicEditor
             .create( document.querySelector( '#petunjuk' ) )
@@ -69,5 +69,4 @@ ClassicEditor
                     console.error( error );
             } );
 </script>
-
 @stop

@@ -3,11 +3,10 @@
 @section('content')
 <style>
     .main{
-        background: url('/images/background2.jpeg') !important;
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
     .panel{
-        background: url('/images/background2.jpeg') !important;
-        /* background-color: red; */
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
 
     span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
