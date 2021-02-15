@@ -26,17 +26,39 @@
         <div class="row">
               <div class="col-lg-4">
                 <h2 class="section-title-underline">
-                  <span>Media Pembelajaran Fisika</span>
+                  <span> Biodata </span>
                 </h2>
               </div>
               <div class="col-lg-4">
-                <p>
-                MEDIA PEMBELAJARAN     FISIKA     BERBASIS     WEB     PADA     POKOK BAHASAN     LISTRIK     DINAMISUNTUK     SISWASEKOLAH MENENGAH ATASNEGERI 10 KOTAJAMBI.
-                </p>
+              <img src="{{url('images/sundari.jpeg')}}" width="200px">
+               
               </div>
               <div class="col-lg-4">
-                <p>Nam veniam tempore tenetur aliquam
-                architecto, hic alias quia quisquam, obcaecati laborum dolores. Ex libero cumque veritatis numquam placeat?</p>
+              <p>
+                Nama		: Sundari Fadhila<br/>
+                Nim		: 206172936<br/>
+                TTL		: Kerinci, 01 Oktober 1999<br/>
+                Alamat		: Desa Permai Indah, Kec.Koto Baru,
+                Kota Sungai Penuh, Provinsi Jambi<br/>
+                Email		: Sundari Fadhila36@gmail.com
+</p>
+              </div>
+        </div>
+         
+
+        </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+        <div class="row">
+              <div class="col-lg-4">
+                <h2 class="section-title-underline">
+                  <span> Tentang Aplikasi </span>
+                </h2>
+              </div>
+              <div class="col-lg-8">
+             Aplikasi ini merupakan media pembelajaran fisika berbasis web pada pokok bahasan momentum dan impuls untuk siswa sekolah menengah atas negeri 3 Sungai Penuh
+              
               </div>
         </div>
          

@@ -15,7 +15,7 @@
             </div>
             @if($item->foto != null)
             <div class="container row text-center">
-              <img src="{{url('images/soal'.$item->foto)}}" alt="" style="width: 200px;">
+              <img src="{{url('images/soal'.$item->foto')}}" alt="" style="width: 200px;">
             </div>
             @endif
             <div class="container" >

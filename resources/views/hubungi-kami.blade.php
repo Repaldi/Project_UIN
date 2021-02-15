@@ -6,7 +6,7 @@
           <div class="row align-items-end justify-content-center text-center">
             <div class="col-lg-7">
               <h2 class="mb-0">Hubungi Kami</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              <p></p>
             </div>
           </div>
         </div>
