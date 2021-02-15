@@ -12,10 +12,10 @@
 @endif
 <style>
     .main{
-        background: url('/images/background2.jpeg') !important;
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
     .panel{
-        background: url('/images/background2.jpeg') !important;
+        background: url('{{asset("images/background2.jpeg")}}') !important;
     }
 
     span,h1,h2,h3,h4,h5,h6,p,b{
@@ -27,7 +27,7 @@
   <div class="panel-heading" style="margin-bottom:20px;">
     <div class="col-md-6">
       <h3 class="panel-title">Halaman Materi</h3>
-      <img src="{{asset('images/background.jpg')}}" alt="" style="width: 300px;">
+
     </div>
     <div class="col-md-6">
 

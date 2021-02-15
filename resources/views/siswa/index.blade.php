@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .main{
-        background: url('/images/Physics-science-seamless-pattern-background.jpg');
+        background: url('{{asset("images/Physics-science-seamless-pattern-background.jpg")}}');
     }
 
     h1{
