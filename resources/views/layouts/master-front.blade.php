@@ -47,8 +47,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-9 d-none d-lg-block">
-            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 081 3132 632 64</a> 
-            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@gmail.com</a> 
+            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> +62 813-6627-3919</a> 
+            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> SundariFadhila36@gmail.com </a> 
           </div>
           <div class="col-lg-3 text-right">
           @if (Route::has('login'))
@@ -73,7 +73,7 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="{{route('index')}}" class="d-block">
-              <img src="{{asset('assets_1/images/logo.jpg')}}" alt="Image" class="img-fluid">
+              <img src="{{asset('assets_1/images/logoku.jpg')}}" alt="Image" class="img-fluid">
             </a>
           </div>
           <div class="mr-auto">
