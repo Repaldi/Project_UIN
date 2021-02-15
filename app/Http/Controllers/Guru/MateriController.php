@@ -29,11 +29,11 @@ class MateriController extends Controller
             'judul_materi' => 'required'
         ]);
 
-        Materi::create([
+        $materi = Materi::create([
             'judul_materi'=>$request->judul_materi
         ]);
 
-        dd("ok");
+        return redirect()->route('showMateri',$materi->id);
     }
 
     public function storeMateri(Request $request)
