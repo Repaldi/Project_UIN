@@ -51,4 +51,11 @@ class ForumController extends Controller
     return redirect()->back()->with('success','Pesan Berhasil di Kirim');
     }
 
+    public function deleteForum($id)
+    {
+        $forum = Forum::find($id);
+        $forum->delete();
+
+        return redirect()->back();
+    }
 }

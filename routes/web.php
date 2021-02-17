@@ -79,6 +79,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/forum', 'Guru\ForumController@forum')->name('forum');
     Route::post('/forum/store', 'Guru\ForumController@storeForum')->name('storeForum');
+    Route::get('/forum/delete/{id}','Guru\ForumController@deleteForum')->name('deleteForum');
     Route::get('forum/{id}','Guru\ForumController@showForum')->name('showForum');
     Route::post('/forum/store/forumJawab', 'Guru\ForumController@storeForumJawab')->name('storeForumJawab');
 

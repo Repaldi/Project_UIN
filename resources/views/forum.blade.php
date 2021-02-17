@@ -1,5 +1,4 @@
 @extends('layouts.master-dashboard-guru')
-
 @section('content')    
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -45,8 +44,12 @@
 									<td>{{$item->created_at}}</td>
 									<td>
 										<a href="{{route('showForum',$item->id)}}" class="btn btn-info">Buka</a>
+										@if ($item->user->role == 1)
+										<a href="{{route('deleteForum',$item->id)}}" class="btn btn-danger">Hapus</a>
+										@else
+										@endif
 									</td>
-			 					</tr>
+			 					</tr> 
 		 						@empty
 								<tr>
 									<td colspan="4"> Belum ada diskusi yang di buat</td>

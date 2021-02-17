@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>@yield('title')</title>
+<title>Dashboard | Pyhsic Edu</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -25,6 +25,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 
 </head>
+<?php  use App\Siswa;
+    $siswa = Siswa::where('user_id', Auth::user()->id )->first();
+?>
+
 
 <body>
 	<!-- WRAPPER -->
@@ -41,7 +45,12 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets_2/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						@if ( Siswa::where('user_id', Auth::user()->id )->first() != null )
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('images/' . $siswa->foto) }}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						@else
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets_2/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+
+						@endif
 							<ul class="dropdown-menu">
 								<li><a href="{{route('profilSiswa')}}"><i class="lnr lnr-user"></i> <span>Profil Saya</span></a></li>
 								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Keluar</span></a></li>
@@ -60,7 +69,7 @@
 						<li><a href="{{route('home')}}" class="{{(request()->is('home')) ? 'active' : ''}}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="{{route('profilSiswa')}}" class="{{(request()->is('/profil')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
 						<li><a href="{{route('petunjuk')}}" class="{{(request()->is('petunjuk*')) ? 'active' : ''}}"><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
-						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
+						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KI & KD</span></a></li>
 						<li><a href="{{route('materi')}}" class="{{(request()->is('materi*')) ? 'active' : ''}}"><i class="lnr lnr-list"></i> <span>Materi</span></a></li>
                         <li><a href="{{route('getEbook')}}" class="{{(request()->is('e-book*')) ? 'active' : ''}}"><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
 						<li><a href="{{route('getLatihan')}}" class="{{(request()->is('latihan*')) ? 'active' : ''}}"><i class="lnr lnr-paperclip"></i> <span>Latihan</span></a></li>

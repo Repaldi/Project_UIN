@@ -21,6 +21,9 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets_2/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets_2/img/favicon.png')}}">
 </head>
+<?php  use App\Guru;
+    $guru = Guru::where('user_id', Auth::user()->id )->first();
+?>
 
 <body>
 	<!-- WRAPPER -->
@@ -37,8 +40,12 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets_2/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						<li class="dropdown">					
+						@if ( Guru::where('user_id', Auth::user()->id )->first() != null )
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('images/' . $guru->foto) }}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						@else
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets_2/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						@endif	
 							<ul class="dropdown-menu">
 								<li><a href="{{route('profilSiswa')}}"><i class="lnr lnr-user"></i> <span>Profil Saya</span></a></li>
 								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Keluar</span></a></li>
@@ -61,7 +68,7 @@
 						<li><a href="{{route('profilSiswa')}}" class="{{(request()->is('siswa/profil')) ? 'active' : ''}}"><i class="lnr lnr-user"></i> <span>Profil</span></a></li>
                         @endif
 						<li><a href="{{route('petunjuk')}}" class="{{(request()->is('petunjuk*')) ? 'active' : ''}}"><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
-						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KD & Tujuan</span></a></li>
+						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KI & KD</span></a></li>
 						<li><a href="{{route('materi')}}" class="{{(request()->is('materi*')) ? 'active' : ''}}"><i class="lnr lnr-list"></i> <span>Materi</span></a></li>
                         <li><a href="{{route('getEbook')}}" class="{{(request()->is('e-book*')) ? 'active' : ''}}"><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
 						<li><a href="{{route('getLatihan')}}" class="{{(request()->is('latihan*')) ? 'active' : ''}}"><i class="lnr lnr-paperclip"></i> <span>Latihan</span></a></li>
