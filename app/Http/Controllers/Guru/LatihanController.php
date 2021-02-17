@@ -53,4 +53,11 @@ class LatihanController extends Controller
 
         return redirect()->back()->with('success-create','Text');
     }
+
+    public function deleteLatihan($id)
+    {
+        $latihan = Latihan::find($id);
+        $latihan->delete();
+        return redirect()->back();
+    }
 }

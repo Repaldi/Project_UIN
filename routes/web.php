@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
 
     //route untuk get latihan_siswa per latihan
     Route::get('/hasil-latihan_siswa-per-latihan/{id}','Guru\LatihanController@getLatihanSiswaPerLatihan')->name('getLatihanSiswaPerLatihan');
+    Route::get('/latihan/delete/{id}','Guru\LatihanController@deleteLatihan')->name('deleteLatihan');
     Route::get('hasil-latihan/{id}','Guru\LatihanController@showHasilLatihan')->name('showHasilLatihan');
     Route::get('/e-book/delete/{id}','Guru\EbookController@deleteEbook')->name('deleteEbook');
 

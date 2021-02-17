@@ -16,11 +16,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('guru/index'); 
+        return view('guru/index');
     }
     public function profilGuru()
     {
-        return view('guru/profil'); 
+        return view('guru/profil');
     }
 
     public function storeProfilGuru(Request $request)
@@ -30,13 +30,18 @@ class DashboardController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
+            'foto' => 'required|nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
-        $file = $request->file('foto');
-        $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = 'images';
-        $file->move($tujuan_upload,$nama_file);
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = 'images';
+            $file->move($tujuan_upload,$nama_file);
+        }else {
+            $nama_file = null;
+        }
+
 
         $profil = Guru::create([
             'user_id' => $request->user_id,
@@ -66,9 +71,9 @@ class DashboardController extends Controller
                 'jk' => $request->jk,
                 'foto' => $nama_file,
             ];
-      
+
             Guru::whereId($guru->id)->update($update);
-            return redirect()->back()->with('success','Profil berhasil diupdate !');   
+            return redirect()->back()->with('success','Profil berhasil diupdate !');
 
     }
     /**

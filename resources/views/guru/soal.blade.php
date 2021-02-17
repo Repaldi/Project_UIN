@@ -34,6 +34,7 @@ $pilgan = Pilgan::where('isdelete',false)->get();
                     <td>{{$item->nama_latihan}}</td>
                     <td>
                         <a href="{{route('getLatihanSiswaPerLatihan',$item->id)}}" class="btn btn-info">Buka</a>
+                        <a href="#" class="btn btn-danger hapus-latihan" data-latihan_id="{{$item->id}}">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
@@ -221,6 +222,23 @@ $(document).ready(function(){
     });
 </script>
 @endif
+
+<script>
+    $('.hapus-latihan').click(function(){
+			const latihan_id = $(this).data('latihan_id');
+			swal({
+				title: "Hapus latihan ini?",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+			.then((willDelete) => {
+				if (willDelete) {
+					window.location = "/guru/latihan/delete/"+latihan_id;
+				}
+			});
+		});
+</script>
 
 <!-- Create Modal (Pilgan)-->
 <div class="modal fade create_modal_pilgan"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -2,10 +2,20 @@
 <?php  use App\Guru;
     $guru = Guru::where('user_id', Auth::user()->id )->first();
 ?>
-@section('content')   
-
+@section('content')
+@if ($errors->any())
+  <div class="row">
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+  </div>
+@endif
 @if ( Guru::where('user_id', Auth::user()->id )->first() != null )
-		
+
 <div class="container-fluid">
 	<div class="panel panel-profile">
 		<div class="clearfix">
@@ -32,7 +42,7 @@
 							<h5 class="heading">Nama Lengkap : <span style="float:right;">  {{ $guru->nama_lengkap }}</span></h5>
 							<h5 class="heading">Nomor Induk : <span style="float:right;"> {{ $guru->nomor_induk }}</span></h5>
 							<h5 class="heading">Jenis Kelamin : <span style="float:right;"> {{ $guru->jk }}</span></h5>
-							<h5 class="heading">Email : <span style="float:right;"> {{auth()->user()->email}}</span></span></h5>		
+							<h5 class="heading">Email : <span style="float:right;"> {{auth()->user()->email}}</span></span></h5>
 							</div>
 							<div class="text-center">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".update_modal_profil"
@@ -52,7 +62,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 
 @else
 
@@ -80,7 +90,7 @@
 						<ul class="list-unstyled list-justify">
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id }} ">
 							<li>Email <input type="email" class="form-control" placeholder="{{auth()->user()->email}}" readonly ></li>
-							<li>Nama Lengkap<input type="text" class="form-control" name="nama_lengkap"> 
+							<li>Nama Lengkap<input type="text" class="form-control" name="nama_lengkap">
 								@if($errors->has('nama_lengkap'))
                                     <span class="help-block">{{$errors->first('nama_lengkap')}}</span>
                              	@endif
@@ -90,7 +100,7 @@
                                     <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                 @endif
 							</li>
-							<li>Jenis Kelamin 
+							<li>Jenis Kelamin
 							<select class="form-control" name="jk" id="jk" >
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -112,11 +122,11 @@
 				<!-- END PROFILE DETAIL -->
 			</div>
 			<!-- END LEFT COLUMN -->
-		
+
 		</div>
 	</div>
 </div>
-			
+
 @endif
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
@@ -139,7 +149,7 @@ $(document).ready(function(){
 @section('linkfooter')
 
 @endsection
-		
+
 		@if ( Guru::where('user_id', Auth::user()->id )->first() != null )
 <!-- Update Modal (Profil)-->
 <div class="modal fade update_modal_profil"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
