@@ -14,13 +14,9 @@
     .main{
         background: url('{{asset("images/background2.jpeg")}}') !important;
     }
-    .panel{
-        background: url('{{asset("images/background2.jpeg")}}') !important;
-    }
-
+   
     span,h1,h2,h3,h4,h5,h6,p,b{
-    color: #fffefa;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: #00000;
     }
 </style>
 <div class="panel">
