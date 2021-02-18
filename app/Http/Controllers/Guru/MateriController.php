@@ -39,7 +39,7 @@ class MateriController extends Controller
     public function storeMateri(Request $request)
     {
       $request->validate([
-        'video' =>'mimes:mp4,3gp,mkv,api,fla,mpg,mpeg',
+        'video' =>'mimes:mp4,3gp,mkv,api,fla,mpg,mpeg,mov',
         'materi' => 'required'
       ]);
 

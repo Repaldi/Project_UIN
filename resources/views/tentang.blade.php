@@ -9,8 +9,8 @@
             </div>
           </div>
         </div>
-</div> 
-    
+</div>
+
 
     <div class="custom-breadcrumns border-bottom">
       <div class="container">
@@ -30,8 +30,8 @@
                 </h2>
               </div>
               <div class="col-lg-4">
-              <img src="{{url('images/sundari.jpeg')}}" width="200px">
-               
+              <img src="{{asset('images/sundari.jpeg')}}" width="200px">
+
               </div>
               <div class="col-lg-4">
               <p>
@@ -44,7 +44,7 @@
 </p>
               </div>
         </div>
-         
+
 
         </div>
     </div>
@@ -58,10 +58,10 @@
               </div>
               <div class="col-lg-8">
              Aplikasi ini merupakan media pembelajaran fisika berbasis web pada pokok bahasan momentum dan impuls untuk siswa sekolah menengah atas negeri 3 Sungai Penuh
-              
+
               </div>
         </div>
-         
+
 
         </div>
     </div>
