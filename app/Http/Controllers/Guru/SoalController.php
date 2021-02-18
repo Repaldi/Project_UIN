@@ -41,15 +41,16 @@ class SoalController extends Controller
         return redirect()->back()
         ->with('success','Soal berhasil dibuat');
     }else{
+        $nama_file = null;
         $pilgan = Pilgan::create([
-            'poin' => $request->poin,
+            'poin' => 10,
             'pertanyaan' => $request->pertanyaan,
             'pil_a' => $request->pil_a,
             'pil_b' => $request->pil_b,
             'pil_c' => $request->pil_c,
             'pil_d' => $request->pil_d,
             'pil_e' => $request->pil_e,
-            'foto' => '',
+            'foto' => $nama_file,
             'kunci' => $request->kunci,
         ]);
         return redirect()->back()

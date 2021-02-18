@@ -5,7 +5,7 @@
     .main{
         background: url('{{asset("images/background2.jpeg")}}') !important;
     }
-  
+
     span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
     color: #00000;
     }
@@ -27,7 +27,7 @@
     @csrf
         <div class="panel-heading">
             <div class="col-md-6">
-            <h1 class="panel-title">Halaman KD & Tujuan</h1>
+            <h1 class="panel-title">Halaman KI & Tujuan</h1>
             </div>
             <!-- <div class="col-md-6">
                 <a href="#" class="btn btn-primary navbar-btn-right">Simpan</a>
@@ -39,7 +39,7 @@
             @if($kdtujuan == null)
 
                 <div class="panel-heading">
-                    <h3 class="panel-title">Kompetensi Dasar</h3>
+                    <h3 class="panel-title"></h3>
                 </div>
                 <div class="row mt-5" style="margin-top:0px;">
                     <textarea class="form-control" name="kd" rows="auto" cols="auto" id="kd"></textarea>
@@ -76,7 +76,7 @@
 @else
 <div class="panel panel-headline">
     <div class="panel-heading">
-        <b><h3 class="panel-title">Kompetensi Dasar</h3></b>
+        <b><h3 class="panel-title">KI & KD</h3></b>
         <!-- <p class="panel-subtitle">Panel to display most important information</p> -->
     </div>
     <div class="panel-body">
