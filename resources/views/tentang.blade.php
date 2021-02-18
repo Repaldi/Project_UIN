@@ -30,7 +30,7 @@
                 </h2>
               </div>
               <div class="col-lg-4">
-              <img src="{{asset('images/sundari.jpeg')}}" width="200px">
+                <img src="{{asset('assets_1/images/sundari.jpeg')}}" width="200px">
 
               </div>
               <div class="col-lg-4">
