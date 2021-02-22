@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .main{
-        background: url('{{asset("images/background2.jpeg")}}');
+        background: url('{{asset("images/background3.png")}}');
     }
 
     h1{
@@ -24,5 +24,7 @@
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
-	<h1>Selamat datang di portal pembelajaran Fisika</h1>
+    <div class="container text-center">
+        <b><h1>Selamat datang di portal pembelajaran Fisika</h1></b>
+    </div>
 @endsection
