@@ -112,7 +112,7 @@ $(document).ready(function(){
                 }
             });
 
-            if (page == 2) {
+            if (page == 10) {
             $("#close_latihan").show();
             }else{
             $("#close_latihan").hide();

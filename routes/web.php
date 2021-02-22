@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/quiz','Guru\QuizController@storeSoalQuiz')->name('storeSoalQuiz');
     Route::patch('/quiz','Guru\QuizController@updateSoalQuiz')->name('updateSoalQuiz');
 
-    Route::get('/create-quiz','Siswa\QuizController@createQuiz');
+    Route::get('/create-quiz','Siswa\QuizController@createQuiz')->name('createQuiz');
 
     Route::get('/create-latihan','Siswa\LatihanController@createLatihan');
 

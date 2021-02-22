@@ -39,13 +39,13 @@
 				</div>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
-						
-						<li class="dropdown">					
+
+						<li class="dropdown">
 						@if ( Guru::where('user_id', Auth::user()->id )->first() != null )
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('images/' . $guru->foto) }}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 						@else
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets_2/img/user.png')}}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-						@endif	
+						@endif
 							<ul class="dropdown-menu">
 								<li><a href="{{route('profilSiswa')}}"><i class="lnr lnr-user"></i> <span>Profil Saya</span></a></li>
 								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Keluar</span></a></li>
@@ -70,6 +70,11 @@
 						<li><a href="{{route('petunjuk')}}" class="{{(request()->is('petunjuk*')) ? 'active' : ''}}"><i class="lnr lnr-cog"></i> <span>Petunjuk</span></a></li>
 						<li><a href="{{route('kdTujuan')}}" class="{{(request()->is('kd&tujuan*')) ? 'active' : ''}}"><i class="lnr lnr-bookmark"></i> <span>KI & KD</span></a></li>
 						<li><a href="{{route('materi')}}" class="{{(request()->is('materi*')) ? 'active' : ''}}"><i class="lnr lnr-list"></i> <span>Materi</span></a></li>
+                        @if(auth()->user()->role == 1)
+						<li><a href="{{route('getQuiz')}}" class="{{(request()->is('quiz*')) ? 'active' : ''}}"><i class="lnr lnr-pushpin"></i> <span>Quiz</span></a></li>
+                        @else
+						<li><a href="{{route('createQuiz')}}" class="{{(request()->is('quiz*')) ? 'active' : ''}}"><i class="lnr lnr-pushpin"></i> <span>Quiz</span></a></li>
+                        @endif
                         <li><a href="{{route('getEbook')}}" class="{{(request()->is('e-book*')) ? 'active' : ''}}"><i class="lnr lnr-book"></i> <span>E-Book</span></a></li>
 						<li><a href="{{route('getLatihan')}}" class="{{(request()->is('latihan*')) ? 'active' : ''}}"><i class="lnr lnr-paperclip"></i> <span>Latihan</span></a></li>
 						<li><a href="{{route('forum')}}" class="{{(request()->is('forum*')) ? 'active' : ''}}"><i class="lnr lnr-bubble"></i> <span>Diskusi</span></a></li>
