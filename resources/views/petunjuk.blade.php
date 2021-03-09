@@ -3,10 +3,10 @@
 @section('content')
 <style>
     .main{
-        background: url('{{asset("images/background2.jpeg")}}') !important;
+        background: url('{{asset("images/background_new1.jpeg")}}') !important;
         background-size : 100%;
     }
-    
+
 
     span,h1,h2,h3,h4,h5,h6,p,b,li,ul,ol{
     color: #00000;
