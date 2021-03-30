@@ -113,7 +113,7 @@ $pilgan = Pilgan::where('isdelete',false)->get();
                 </tr>
             </thead>
             <tbody>
-                @if($latihan->count() != 0)
+                @if($latihan_siswa->count() != 0)
                 @foreach($latihan_siswa as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
@@ -132,6 +132,8 @@ $pilgan = Pilgan::where('isdelete',false)->get();
                     </td>
                 </tr>
                 @endforeach
+                @else
+                <h2>Kamu Belum mengikuti Latihan manapun</h2>
                 @endif
             </tbody>
         </table>

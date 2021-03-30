@@ -17,6 +17,7 @@ class SoalController extends Controller
         $latihan = Latihan::all();
         if (auth()->user()->role == 2) {
             $latihan_siswa = LatihanSiswa::where('user_id',auth()->user()->id)->get();
+            // dd($latihan_siswa);
         }else {
             $latihan_siswa = null;
         }
