@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
 use App\Latihan;
+use App\LatihanSiswa;
 use Illuminate\Http\Request;
 use App\Pilgan;
 use File;
@@ -14,7 +15,13 @@ class SoalController extends Controller
     {
         $pilgan = Pilgan::where('isdelete',false)->get();
         $latihan = Latihan::all();
-        return view('guru/soal', compact(['pilgan','latihan']));
+        if (auth()->user()->role == 2) {
+            $latihan_siswa = LatihanSiswa::where('user_id',auth()->user()->id)->get();
+        }else {
+            $latihan_siswa = null;
+        }
+
+        return view('guru/soal', compact(['pilgan','latihan','latihan_siswa']));
     }
 
     public function storeSoal(Request $request)

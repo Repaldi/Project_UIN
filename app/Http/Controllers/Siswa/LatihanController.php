@@ -98,6 +98,7 @@ class LatihanController extends Controller
             $pesan = "Kamu belum menjawab semua soal latihannya";
             return response()->json([
                 'pesan' => $pesan,
+                'latihan_siswa_id' => $request->latihan_siswa_id,
                 'isComplete' => false
             ]);
         }

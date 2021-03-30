@@ -39,6 +39,7 @@ class LatihanController extends Controller
             'nama_latihan' => $request->nama_latihan
         ]);
 
+
         $siswas = User::where('role',2)->get();
 
         foreach ($siswas as $key => $siswa) {

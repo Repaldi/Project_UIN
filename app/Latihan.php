@@ -11,6 +11,6 @@ class Latihan extends Model
 
     public function latihan_siswa()
     {
-        return $this->hasOne(LatihanSiswa::class,'latihan_id','id');
+        return $this->hasMany(LatihanSiswa::class,'latihan_id','id');
     }
 }

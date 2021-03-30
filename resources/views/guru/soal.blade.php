@@ -114,20 +114,20 @@ $pilgan = Pilgan::where('isdelete',false)->get();
             </thead>
             <tbody>
                 @if($latihan->count() != 0)
-                @foreach($latihan as $item)
+                @foreach($latihan_siswa as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$item->nama_latihan}}</td>
+                    <td>{{$item->latihan->nama_latihan}}</td>
                     <td>
-                        @if ($item->latihan_siswa->status == false)
+                        @if ($item->status == false)
                             Belum dikerjakan
                         @else
                             Telah dikerjakan
                         @endif
                     </td>
                     <td>
-                        @if ($item->latihan_siswa->status == false)
-                        <a href="{{route('getLatihanSiswa',$item->latihan_siswa->id)}}" class="btn btn-info">Buka</a>
+                        @if ($item->status == false)
+                        <a href="{{route('getLatihanSiswa',$item->id)}}" class="btn btn-info">Buka</a>
                         @endif
                     </td>
                 </tr>

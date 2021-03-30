@@ -140,7 +140,7 @@ $(document).ready(function(){
                             window.location = "/latihan/finish/"+ latihan_siswa_id;
                         }
                     }else{
-                        alert(response.pesan);
+                        alert(response.pesan + response.latihan_siswa_id);
                         $("#fullscreenExam").css('display','none');
                     }
                 }
