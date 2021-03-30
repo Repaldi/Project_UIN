@@ -31,7 +31,7 @@
                     <div class="subjudul"> Pertanyaan : </div>
                     @if($item->pilgan->foto != null)
                     <div class="text-center">
-                        <img src="{{url('asset-quiz/'.$item->quiz->foto)}}" alt="" style="max-width: 200px; margin:auto;">
+                        <img src="{{url('asset-quiz/'.$item->pilgan->foto)}}" alt="" style="max-width: 200px; margin:auto;">
                     </div>
                     @endif
                     <div class="isi"> {!!$item->pilgan->pertanyaan!!}
