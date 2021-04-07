@@ -1,84 +1,64 @@
-@extends('layouts.master-front')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
 
-@section('content')
-<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
-        <div class="container">
-          <div class="row align-items-end justify-content-center text-center">
-            <div class="col-lg-7">
-              <h2 class="mb-0">Daftar</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            </div>
-          </div>
-        </div>
-      </div> 
-    
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{asset('Front_Form/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
 
-    <div class="custom-breadcrumns border-bottom">
-      <div class="container">
-        <a href="index.html">Beranda</a>
-        <span class="mx-3 icon-keyboard_arrow_right"></span>
-        <span class="current">Daftar</span>
-      </div>
-    </div>
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{asset('Front_Form/css/style.css')}}">
+</head>
+<body>
 
-    <div class="site-section">
-        <div class="container">
+    <div class="main">
 
-        <form method="POST" class="register-form"action="{{ route('register') }}">
-         @csrf
-         <!-- Sebagai Siswa Role 2 -->
-         <input type="hidden" name="role" value="2">
-         <!-- Batas Sebagai Siswa Role 2 -->
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label for="username">Nama Pengguna</label>
-                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                            @error('username')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="pword">Kata Sandi</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="password">Ulangi Kata Sandi</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        </div>
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Daftar Sebagai Siswa</h2>
+                        <form method="POST" class="register-form"action="{{ route('register') }}">
+                        @csrf
+                        <!-- Sebagai Siswa Role 2 -->
+                        <input type="hidden" name="role" value="2">
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Nama Pengguna"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Kata Sandi"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Ulangi Kata Sandi"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" class="form-submit" value="Daftar"/>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input type="submit" value="Daftar" class="btn btn-primary btn-lg px-5">
-                        </div>
+                    <div class="signup-image">
+                        <figure><img src="{{asset('Front_Form/images/daftar1.jpg')}}" alt="sing up image"></figure>
+                        Sudah Memiliki Akun? <a href="{{ route('login') }}" >Klik Disni</a>
                     </div>
                 </div>
             </div>
-            </form>
-            
+        </section>
 
-          
-        </div>
     </div>
 
-@endsection
+    <!-- JS -->
+    <script src="{{asset('Front_Form/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('Front_Form/js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

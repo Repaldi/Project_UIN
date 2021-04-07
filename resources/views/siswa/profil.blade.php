@@ -110,50 +110,7 @@
 						<!-- END PROFILE DETAIL -->
 					</div>
 					<!-- END LEFT COLUMN -->
-					<!-- RIGHT COLUMN -->
-					<div class="profile-right">
-						<h4 class="heading">Samuel's Awards</h4>
-						<!-- AWARDS -->
-						<div class="awards">
-							<div class="row">
-								<div class="col-md-3 col-sm-6">
-									<div class="award-item">
-										<div class="hexagon">
-											<span class="lnr lnr-sun award-icon"></span>
-										</div>
-										<span>Most Bright Idea</span>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="award-item">
-										<div class="hexagon">
-											<span class="lnr lnr-clock award-icon"></span>
-										</div>
-										<span>Most On-Time</span>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="award-item">
-										<div class="hexagon">
-											<span class="lnr lnr-magic-wand award-icon"></span>
-										</div>
-										<span>Problem Solver</span>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6">
-									<div class="award-item">
-										<div class="hexagon">
-											<span class="lnr lnr-heart award-icon"></span>
-										</div>
-										<span>Most Loved</span>
-									</div>
-								</div>
-							</div>
-							<div class="text-center"><a href="#" class="btn btn-default">See all awards</a></div>
-						</div>
-						<!-- END AWARDS -->
-					</div>
-					<!-- END RIGHT COLUMN -->
+
 				</div>
 			</div>
 		</div>

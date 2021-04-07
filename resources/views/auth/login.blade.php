@@ -1,71 +1,71 @@
-@extends('layouts.master-front')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
 
-@section('content')
-<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
-        <div class="container">
-          <div class="row align-items-end justify-content-center text-center">
-            <div class="col-lg-7">
-              <h2 class="mb-0">Masuk</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            </div>
-          </div>
-        </div>
-      </div> 
-    
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{asset('Front_Form/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
 
-    <div class="custom-breadcrumns border-bottom">
-      <div class="container">
-        <a href="index.html">Beranda</a>
-        <span class="mx-3 icon-keyboard_arrow_right"></span>
-        <span class="current">Masuk</span>
-      </div>
-    </div>
-
-    <div class="site-section">
-        <div class="container">
-
-        <form method="POST" action="{{ route('login') }}">
-        @csrf
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            
-                            @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="pword">Kata Sandi</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{asset('Front_Form/css/style.css')}}">
+</head>
+<body>
+    @if(session('alert'))
+      <script>
+        alert('Anda tidak boleh memasuki halaman tersebut');
+      </script>
+    @endif
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{{asset('Front_Form/images/login1.jpg')}}" alt="sing up image"></figure>
+                        Belum Punya Akun? <a href="{{ route('register') }}">Klik Disini</a>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input type="submit" value="Masuk" class="btn btn-primary btn-lg px-5">
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Masuk</h2>
+                        <form method="POST" class="register-form" action="{{ route('login') }}" id="login-form">
+                        @csrf
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="email" name="email"  placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password"  placeholder="Kata Sandi"/>
+                            </div>
                             @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Lupa Password?') }}
-                                    </a>
+                            <div class="form-group">
+                            Lupa Kata Sandi?<a href="{{ route('password.request') }}"> Klik Disini</a>
+                            </div>
                             @endif
-                        </div>
+                            <div class="form-group form-button">
+                                <input type="submit" class="form-submit" value="Masuk"/>
+                            </div>
+                        </form>
+                        <!-- <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </form>
+        </section>
 
-          
-        </div>
     </div>
 
-@stop
+    <!-- JS -->
+    <script src="{{asset('Front_Form/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('Front_Form/js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
