@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5,
   border-top: 1px solid #edf0f5 !important; }
 
 .site-footer {
-  padding: 4em 0; }
+  padding: 2em 0; }
   @media (min-width: 768px) {
     .site-footer {
       padding: 8em 0; } }
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5,
     .site-footer a:hover {
       color: black; }
   .site-footer ul li {
-    margin-bottom: 10px; }
+    margin-bottom: 5px; }
   .site-footer .footer-heading {
     font-size: 16px;
     color: #fff;

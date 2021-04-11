@@ -11,7 +11,7 @@ class ForumController extends Controller
 {
     public function forum()
     {
-        $forum= Forum::all();
+        $forum= Forum::paginate(10);
         return view('forum',compact('forum'));
     }
 

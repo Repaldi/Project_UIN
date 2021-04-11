@@ -12,7 +12,7 @@ class MateriController extends Controller
 {
     public function materi()
     {
-        $materi = Materi::all();
+        $materi = Materi::paginate(10);
         return view('getMateri',compact(['materi']));
     }
 

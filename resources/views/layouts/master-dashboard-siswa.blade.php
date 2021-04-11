@@ -44,7 +44,6 @@
 				</div>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
 						@if ( Siswa::where('user_id', Auth::user()->id )->first() != null )
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('images/' . $siswa->foto) }}" class="img-circle" alt="Avatar"> <span>{{ Auth::user()->username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 						@else
@@ -100,23 +99,6 @@
 	<script src="{{asset('assets_2/scripts/klorofil-common.js')}}"></script>
 	<script>
 
-//   $(document).ready(function () {
-//     $("#latihan").click(function (e) {
-//       swal({
-//         title: "Yakin?",
-//         text: "Mau memulai Latihan ?",
-//         icon: "warning",
-//         buttons: true,
-//         dangerMode: false,
-//       })
-//       .then((willDelete) => {
-//         if (willDelete) {
-//           window.location = "/create-latihan";
-//         }
-//       });
-//     });
-
-//   });
 </script>
 	@yield('linkfooter')
 

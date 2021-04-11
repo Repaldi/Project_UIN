@@ -12,7 +12,7 @@ class EbookController extends Controller
 {
     public function getEbook()
     {
-        $ebook = Ebook::all();
+        $ebook = Ebook::paginate(10);
         return view('ebook',compact(['ebook']));
     }
 

@@ -10,15 +10,18 @@ class KDTujuanController extends Controller
 {
     public function index()
     {
-        $kdtujuan = KDTujuan::first();
-        return view('kdtujuan',compact('kdtujuan'));
+            $kdtujuan = KDTujuan::first();
+            return view('kdtujuan',compact('kdtujuan'));
+      
+        
     }
 
     public function storeKDTujuan(Request $request)
     {
         $request->validate([
             'kd'=>'required',
-            'tujuan'=>'required'
+            'tujuan'=>'required',
+            'ki'=>'required'
         ]);
 
         $kdtujuan = KDTujuan::first();
@@ -26,12 +29,14 @@ class KDTujuanController extends Controller
         if ($kdtujuan) {
             $kdtujuan->update([
                 'kd'=>$request->kd,
-                'tujuan' => $request->tujuan
+                'tujuan' => $request->tujuan,
+                'ki'=>$request->ki,
             ]);
         }else {
             KDTujuan::create([
                 'kd' => $request->kd,
-                'tujuan' => $request->tujuan
+                'tujuan' => $request->tujuan,
+                'ki'=>$request->ki,
             ]);
         }
 
