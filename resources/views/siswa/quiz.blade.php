@@ -23,7 +23,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -71,7 +71,7 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Halaman Quiz</h6>
-            </div>    
+            </div>
          </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
               <div class="card-body">
               <div class="text-center">
               <a href="#" class="btn btn-primary" style="width:200px;" id="start_quiz">Mulai Quiz</a>
-              </div> 
+              </div>
               </div>
     </div>
 </div>
@@ -143,8 +143,8 @@ p{
   </div>
 </div>
 
-
-
+@endsection
+@section('linkfooter')
 <script>
 $(document).ready(function(){
     const quiz_siswa_id = $('#quiz_siswa_id').val();
@@ -153,6 +153,7 @@ $(document).ready(function(){
     // $("#fullscreenExam").hide();
 
     $("#start_quiz").click(function(e){
+        alert("ok");
         $("#fullscreenExam").show();
         if (elem.requestFullscreen) {
             elem.requestFullscreen();

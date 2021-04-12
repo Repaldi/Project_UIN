@@ -15,7 +15,7 @@
         </ul>
     </div>
 @endif
- 
+
 @if(auth()->user()->role==2)
 <!-- Main content -->
  <div class="main-content" id="panel">
@@ -35,7 +35,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -83,7 +83,7 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">E-book</h6>
-            </div>    
+            </div>
          </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
               <h3 class="mb-0">Daftar E-Book</h3>
             </div>
             <!-- Light table -->
-            <div class="table-responsive" data-toggle="list" data-list-values='["no", "judul", "penulis","tahun"]'>
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -109,7 +109,7 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                <tbody class="list">
+                <tbody>
                   @forelse ($ebook as $item)
                   <tr>
                     <td class="budget">
@@ -127,7 +127,7 @@
                     <td class="budget">
                     <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
                     </td>
-                  </tr>  
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -166,7 +166,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -214,7 +214,7 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">E-Book</h6>
-            </div>    
+            </div>
                 <div class="col-lg-6 col-5 text-right">
                     <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah_ebook">Tambah E-Book</a>
                 </div>
@@ -232,7 +232,7 @@
               <h3 class="mb-0">Daftar E-Book</h3>
             </div>
             <!-- Light table -->
-            <div class="table-responsive" data-toggle="list" data-list-values='["no", "judul", "penulis","tahun"]'>
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -243,7 +243,7 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                <tbody class="list">
+                <tbody>
                   <tr>
                   @forelse($ebook as $item)
                     <td class="no">
@@ -258,7 +258,7 @@
                     <td class="tahun">
                     {{$item->tahun}}
                     </td>
-                    
+
                     <td class="text-right">
                       <div class="dropdown">
                         <a class="btn btn-sm btn-icon-only text-light" href="sortable.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -361,7 +361,7 @@
                       <label for="penulis" class="col-form-label">Penulis</label>
                       <input class="form-control" type="text" name="penulis" id="penulis">
                     </div>
-              
+
                   <div class="form-group">
                         <label for="tahun" class="col-form-label">Tahun </label>
                         <input class="form-control" name="tahun" id="tahun" type="number">

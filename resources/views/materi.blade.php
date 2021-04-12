@@ -15,7 +15,7 @@
         </ul>
     </div>
 @endif
- 
+
 @if(auth()->user()->role==2)
 <!-- Main content -->
  <div class="main-content" id="panel">
@@ -35,7 +35,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -130,7 +130,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">

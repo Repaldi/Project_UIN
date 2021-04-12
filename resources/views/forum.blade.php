@@ -17,7 +17,7 @@
 @endif
  <!-- Main content -->
  <div class="main-content" id="panel">
-    
+
 @if(auth()->user()->role==2)
 <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
@@ -35,7 +35,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -92,7 +92,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -140,12 +140,12 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Forum Diskusi</h6>
-            </div>   
-			
+            </div>
+
 			<div class="col-lg-6 col-5 text-right">
                     <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target=".create_modal_diskusi">Mulai Diskusi Baru</a>
-                </div> 
-		
+                </div>
+
          </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
               <h3 class="mb-0">Riwayat Diskusi</h3>
             </div>
             <!-- Light table -->
-            <div class="table-responsive" data-toggle="list" data-list-values='["no", "judul"]'>
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -172,8 +172,8 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                <tbody class="list">
-                 
+                <tbody>
+
                   @foreach($forum as $item)
                   <tr>
                     <td class="no">
@@ -197,7 +197,7 @@
                     </td>
                     </tr>
                     @endforeach
-                  
+
                 </tbody>
               </table>
             </div>
@@ -216,7 +216,7 @@
 <div class="modal fade create_modal_diskusi"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md-12" >
 		<div class="modal-content">
-			<div class="modal-header ">		
+			<div class="modal-header ">
 				<h5 class="modal-title " id="exampleModalLabel"> Buat Forum Baru</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>

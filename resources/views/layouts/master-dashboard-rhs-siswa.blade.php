@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -250,13 +251,12 @@
       @endif
     </div>
   </nav>
-  
+
   @yield('content')
 
     </div>
   </div>
   <!-- Argon Scripts -->
-  @yield('linkfooter')
   <!-- Core -->
   <script src="{{asset('assets_rhs_1/vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('assets_rhs_1/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
@@ -277,10 +277,11 @@
   <script src="{{asset('assets_rhs_1/js/argon.min-v=1.0.0.js')}}"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="{{asset('assets_rhs_1/js/demo.min.js')}}"></script>
+  @yield('linkfooter')
 
 
 
- 
+
 </body>
 
 </html>

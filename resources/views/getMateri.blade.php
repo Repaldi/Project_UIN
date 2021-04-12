@@ -15,7 +15,7 @@
         </ul>
     </div>
 @endif
- 
+
 @if(auth()->user()->role==2)
 <!-- Main content -->
  <div class="main-content" id="panel">
@@ -35,7 +35,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -83,7 +83,7 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Materi</h6>
-            </div>    
+            </div>
          </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
               <h3 class="mb-0">Daftar Materi</h3>
             </div>
             <!-- Light table -->
-            <div class="table-responsive" data-toggle="list" data-list-values='["no", "judul"]'>
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -107,8 +107,8 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                <tbody class="list">
-                 
+                <tbody>
+
                   @foreach($materi as $item)
                   <tr>
                     <td class="no">
@@ -122,7 +122,7 @@
                     </td>
                     </tr>
                     @endforeach
-                  
+
                 </tbody>
               </table>
             </div>
@@ -156,7 +156,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -204,7 +204,7 @@
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Materi</h6>
-            </div>    
+            </div>
                 <div class="col-lg-6 col-5 text-right">
                     <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah_materi">Tambah Materi</a>
                 </div>
@@ -222,7 +222,7 @@
               <h3 class="mb-0">Judul Materi</h3>
             </div>
             <!-- Light table -->
-            <div class="table-responsive" data-toggle="list" data-list-values='["no", "judul", "status"]'>
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -231,25 +231,25 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                <tbody class="list">
-                 
+                <tbody">
+
                   @foreach($materi as $item)
                   <tr>
-                    <td class="no">
+                    <td>
                     {{$loop->iteration}}
                     </td>
-                    <td class="judul">
+                    <td>
                     {{$item->judul_materi}}
                     </td>
-                    
+
                     <td>
-                      
-                      <a class="btn btn-sm btn-primary" href="{{route('showMateri',$item->id)}}">Buka Materi</a>
+
+                      <a href="{{route('showMateri',$item->id)}}" target="_blank">Buka Materi</a>
 
                     </td>
                     </tr>
                     @endforeach
-                  
+
                 </tbody>
               </table>
             </div>
