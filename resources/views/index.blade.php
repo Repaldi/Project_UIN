@@ -88,7 +88,7 @@
               <div class="pr-5">
                 <h1 class="display-2 text-white font-weight-bold mb-0">Selamat Datang</h1>
                 <h2 class="display-4 text-white font-weight-light">di Media Pembelajaran Fisika</h2>
-                <p class="text-white mt-4">Media Pembalajaran ini di buat untuk siswa kelas 12 SMA</p>
+                <p class="text-white mt-4">Media Pembalajaran ini di buat untuk siswa kelas 10 SMA</p>
                 <div class="mt-5">
                   <a href="{{route('login')}}" class="btn btn-neutral my-2">Masuk</a>
                   <a href="{{route('register')}}" class="btn btn-default my-2">Daftar</a>

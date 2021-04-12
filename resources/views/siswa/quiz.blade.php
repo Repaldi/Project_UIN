@@ -160,13 +160,6 @@ $(document).ready(function(){
         }
     })
 
-    // $("#close_quiz").click(function(e){
-    //     if (document.exitFullscreen) {
-    //         document.exitFullscreen();
-    //         $("#fullscreenExam").hide();
-    //     }
-    // })
-
 
         $(document).on('click', '.pagination a',function(event){
             event.preventDefault(); //stop refresh webpage

@@ -51,7 +51,6 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
 
     Route::post('/materi','Guru\MateriController@storeMateri')->name('storeMateri');
     Route::patch('/materi','Guru\MateriController@updateMateri')->name('updateMateri');
-
     Route::post('/materi/new','Guru\MateriController@storeMateriBaru')->name('storeMateriBaru');
 
 

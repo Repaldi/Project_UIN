@@ -15,6 +15,17 @@
         </ul>
     </div>
 @endif
+<!-- @if(Session::has('success-edit'))
+<script>
+    swal({
+        title: "Berhasil",
+        text: "Berhasil mengedit E-Book",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+@endif -->
+           
 
 @if(auth()->user()->role==2)
 <!-- Main content -->
@@ -125,7 +136,7 @@
                     {{$item->tahun}}
                     </td>
                     <td class="budget">
-                    <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
+                    <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-sm btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
                     </td>
                   </tr>
                 </tbody>
@@ -231,7 +242,7 @@
             <div class="card-header border-0">
               <h3 class="mb-0">Daftar E-Book</h3>
             </div>
-            <!-- Light table -->
+     <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -259,17 +270,13 @@
                     {{$item->tahun}}
                     </td>
 
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="sortable.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item"  href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
-                        <a class="dropdown-item"  href="#" class="btn btn-warning edit-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}" data-penulis="{{$item->penulis}}" data-tahun="{{$item->tahun}}" data-toggle="modal" data-target="#edit_ebook"> <i class="lnr lnr-edit"></i> Edit </a>
-                        <a class="dropdown-item"  href="#" class="btn btn-danger hapus-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}">Hapus</a>
-                        </div>
-                      </div>
+                    <td class="aksi">
+                      
+                       
+                          <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-sm btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
+                        <a  href="#" class="btn btn-sm btn-warning edit-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}" data-penulis="{{$item->penulis}}" data-tahun="{{$item->tahun}}" data-toggle="modal" data-target="#edit_ebook"> <i class="lnr lnr-edit"></i> Edit </a>
+                        <a  href="#" class="btn btn-sm btn-danger hapus-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}">Hapus</a>
+                     
                     </td>
                   </tr>
                 </tbody>
@@ -293,6 +300,12 @@
     </div>
 @else
 @endif
+
+
+
+@endsection
+
+@section('linkfooter')
 
 <script>
     $(document).ready(function () {
@@ -334,10 +347,54 @@
 		});
 
 </script>
+ <!-- Modal EDIT EBOOK -->
+ <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="edit_ebook">
+    <div class="modal-dialog modal-md-12" >
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h5 class="modal-title " id="exampleModalLabel"> Edit Ebook</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('updateEbook')}}" enctype="multipart/form-data" method="post">
+          @csrf @method('PATCH')
+            <div class="modal-body">
+              <div class="container">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="judul" class="col-form-label">Judul Ebook</label>
+                      <input type="hidden" value="" name="ebook_id_update" id="ebook_id_update">
+                      <input class="form-control" type="text" name="judul_update" id="judul_update" value="">
+                    </div>
+                    <div class="form-group">
+                      <label for="penulis" class="col-form-label">Penulis</label>
+                      <input class="form-control" type="text" name="penulis_update" id="penulis_update" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="tahun" class="col-form-label">Tahun </label>
+                        <input class="form-control" name="tahun_update" id="tahun_update" type="number" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="file" class="col-form-label">File </label>
+                        <input type="file" name="file_update" class="form-control" id="file_update">
+                    </div>
+                  </div>
+              </div>
+            </div>
 
-@endsection
 
-@section('linkfooter')
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-info" >Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
 <!-- Modal TAMBAH EBOOK -->
 <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="tambah_ebook">
     <div class="modal-dialog modal-lg" >
@@ -382,65 +439,5 @@
       </div>
     </div>
 </div>
-
- <!-- Modal EDIT EBOOK -->
- <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="edit_ebook">
-    <div class="modal-dialog modal-md-12" >
-      <div class="modal-content">
-        <div class="modal-header ">
-          <h5 class="modal-title " id="exampleModalLabel"> Edit Ebook</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form action="{{route('updateEbook')}}" enctype="multipart/form-data" method="post">
-          @csrf @method('PATCH')
-            <div class="modal-body">
-              <div class="container">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label for="judul" class="col-form-label">Judul Ebook</label>
-                      <input type="hidden" value="" name="ebook_id_update" id="ebook_id_update">
-                      <input class="form-control" type="text" name="judul_update" id="judul_update" value="">
-                    </div>
-                    <div class="form-group">
-                      <label for="penulis" class="col-form-label">Penulis</label>
-                      <input class="form-control" type="text" name="penulis_update" id="penulis_update" value="">
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="tahun" class="col-form-label">Tahun </label>
-                        <input class="form-control" name="tahun_update" id="tahun_update" type="number" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for="file" class="col-form-label">File </label>
-                        <input type="file" name="file_update" class="form-control" id="file_update">
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-info" >Simpan</button>
-          </div>
-        </form>
-      </div>
-    </div>
-</div>
-
-@if(Session::has('success-edit'))
-<script>
-    swal({
-        title: "Berhasil",
-        text: "Berhasil mengedit E-Book",
-        icon: "success",
-        button: "OK",
-    });
-</script>
-@endif
-
 
 @endsection

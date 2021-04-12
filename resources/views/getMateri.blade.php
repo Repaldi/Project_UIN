@@ -244,7 +244,7 @@
 
                     <td>
 
-                      <a href="{{route('showMateri',$item->id)}}" target="_blank">Buka Materi</a>
+                      <a href="{{route('showMateri',$item->id)}}" class="btn btn-sm btn-primary" target="_self">Buka Materi</a>
 
                     </td>
                     </tr>

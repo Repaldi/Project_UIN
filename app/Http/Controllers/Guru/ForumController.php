@@ -34,8 +34,6 @@ class ForumController extends Controller
         $topik = $forum->topik;
         $forum_id = $forum->id;
         $forum_jawab = ForumJawab::where('forum_id', $forum_id)->get();
-        // $user = $latihan_siswa->user;
-        // $latihan_jawab = LatihanJawab::where('latihan_siswa_id',$latihan_siswa->id)->get();
         return view('bukaforum',compact(['forum','topik','forum_jawab']));
     }
 

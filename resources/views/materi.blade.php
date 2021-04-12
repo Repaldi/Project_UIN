@@ -91,6 +91,7 @@
     <!-- Page content -->
     <div class="container-fluid mt--6">
     <div class="card">
+            @if($materi->materi != null)
               <!-- Card header -->
               <div class="card-header">
                 <h3 class="mb-0">{{$materi->judul_materi}}</h3>
@@ -103,9 +104,24 @@
               <div class="text-justify" style="padding:20px;">
                 <p>{!!$materi->materi!!}</p>
               </div>
+            
+            @if($materi->video != null)
              <div class="text-center">
               <iframe src="{{url('asset-materi/'.$materi->video)}}" width="70%" height="500px"></iframe>
             </div>
+            @else
+            @endif
+            @else
+            <div class="card-header">
+                <h3 class="mb-0">{{$materi->judul_materi}}</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+              <div class="text-center">
+                Materi Belum Tersedia
+              </div>
+              
+            @endif
             <a href="#" class="btn btn-primary navbar-btn-right" id="quiz">Quiz</a>
               </div>
             </div>
@@ -215,7 +231,7 @@
               </div>
               <!-- Card body -->
               <div class="card-body">
-                <textarea class="form-control ckeditor" name="materi" rows="auto" cols="auto" id="materi" rows="10">{{old('materi')}}</textarea>
+                <textarea class="form-control ckeditor" name="materi" rows="auto" cols="auto" id="materi" rows="10" required>{{old('materi')}}</textarea>
               </div>
       </div>
       <div class="row" style="margin-top:10px;">
@@ -237,6 +253,8 @@
               <div class="card-body">
               <input type="text" class="form-control" name="judul_materi" value="{{$materi->judul_materi}}">
               </div>
+            
+              @if($materi->video == null)
               <!-- Card header -->
               <div class="card-header">
                 <h3 class="mb-0">Piih Video</h3>
@@ -244,17 +262,33 @@
               <!-- Card body -->
               <div class="card-body">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="video" value="{{url('asset-materi'.$materi->video)}}" lang="en">
+                  <input type="file" class="custom-file-input" name="video"  lang="en">
                     <label class="custom-file-label" for="customFileLang">Piih File</label>
                   </div>
               </div>
+              @else
+               <!-- Card header -->
+               <div class="card-header">
+                <h3 class="mb-0">Ganti Video </h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="custom-file">
+                    <iframe src="{{url('asset-materi/'.$materi->video)}}" width="30%" height="200px"></iframe><br/>
+                  </div>
+                  <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="video" value="{{url('asset-materi'.$materi->video)}}" lang="en">
+                    <label class="custom-file-label" for="customFileLang">Piih File</label>
+                    </div>
+              </div>
+              @endif
               <!-- Card header -->
               <div class="card-header">
                 <h3 class="mb-0">ISI MATERI</h3>
               </div>
               <!-- Card body -->
               <div class="card-body">
-                <textarea class="form-control ckeditor" name="materi" rows="auto" cols="auto" id="materi" rows="10">{{$materi->materi}}</textarea>
+                <textarea class="form-control ckeditor" name="materi" rows="auto" cols="auto" id="materi" rows="10" required>{{$materi->materi}}</textarea>
               </div>
       </div>
       <div class="row" style="margin-top:10px;">
@@ -268,7 +302,6 @@
     </div>
   </div>
 @endif
-
 
 @endsection
 

@@ -189,9 +189,9 @@
 					{{$item->created_at}}
                     </td>
                     <td >
-					<a href="{{route('showForum',$item->id)}}" class="btn btn-info">Buka</a>
+					<a href="{{route('showForum',$item->id)}}" class="btn btn-sm btn-info">Buka</a>
 					@if ($item->user->role == 1)
-					<a href="{{route('deleteForum',$item->id)}}" class="btn btn-danger">Hapus</a>
+					<a href="{{route('deleteForum',$item->id)}}" class="btn  btn-sm btn-danger">Hapus</a>
 					@else
 					@endif
                     </td>

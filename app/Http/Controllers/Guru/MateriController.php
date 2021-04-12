@@ -97,4 +97,5 @@ class MateriController extends Controller
       return redirect()->back()->with('success','Text');
 ;
     }
+   
 }
