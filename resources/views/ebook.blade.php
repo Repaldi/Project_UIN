@@ -25,7 +25,7 @@
     });
 </script>
 @endif -->
-           
+
 
 @if(auth()->user()->role==2)
 <!-- Main content -->
@@ -271,12 +271,12 @@
                     </td>
 
                     <td class="aksi">
-                      
-                       
+
+
                           <a href="{{url('asset-ebook/'.$item->file)}}" class="btn btn-sm btn-primary" target="__blank"> <i class="lnr lnr-download"></i> Download</a>
                         <a  href="#" class="btn btn-sm btn-warning edit-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}" data-penulis="{{$item->penulis}}" data-tahun="{{$item->tahun}}" data-toggle="modal" data-target="#edit_ebook"> <i class="lnr lnr-edit"></i> Edit </a>
                         <a  href="#" class="btn btn-sm btn-danger hapus-ebook" data-ebook_id="{{$item->id}}" data-judul="{{$item->judul}}">Hapus</a>
-                     
+
                     </td>
                   </tr>
                 </tbody>
@@ -306,7 +306,7 @@
 @endsection
 
 @section('linkfooter')
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".edit-ebook").click(function (e) {

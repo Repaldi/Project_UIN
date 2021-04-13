@@ -16,7 +16,7 @@ class LatihanSiswa extends Model
 
     public function latihan()
     {
-        return $this->belongsTo(Latihan::class);
+        return $this->belongsTo(Latihan::class)->withTrashed();
     }
 
     public function latihan_jawab()

@@ -91,4 +91,11 @@ class QuizController extends Controller
       Alert::success("Berhasil mengubah soal");
       return redirect()->back();
     }
+
+    public function deleteQuiz($id)
+    {
+        $quiz = Quiz::find($id);
+        $quiz->delete();
+        return back()->with('success_delete','Berhasil Menghapus soal quiz');
+    }
 }

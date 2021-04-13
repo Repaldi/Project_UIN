@@ -1,6 +1,6 @@
 @extends('layouts.master-dashboard-rhs-siswa')
 @section('title','Buat Soal Quiz')
-<?php  
+<?php
     use App\Guru;
     $guru = Guru::where('user_id', Auth::user()->id )->first();
 ?>
@@ -90,7 +90,7 @@
             <div class="card-header border-0">
               <h3 class="mb-0">Daftar Pertanyaan Quiz</h3>
             </div>
-           
+
              <!-- Card body -->
              <div class="card-body">
              <div class="row">
@@ -102,7 +102,7 @@
                       <div class="subjudul"> Pertanyaan : </div>
                       <div class="isi"> {!!$item->pertanyaan!!} </div>
                       <div class="subjudul"> Pilihan : </div>
-                      <div class="isi">    A . {{$item->pil_a}}  
+                      <div class="isi">    A . {{$item->pil_a}}
                           B . {{$item->pil_b}}  <br>
                           C . {{$item->pil_c}}  <br>
                           D . {{$item->pil_d}}  <br>
@@ -126,7 +126,7 @@
                          Edit Soal Quiz</button>
                       </div>
                       <div class="row">
-                        <a href="#" class="btn btn-sm btn-primary">Hapus</a>
+                        <a href="#" class="btn btn-sm btn-primary hapus_soal" data-quiz_id="{{$item->id}}">Hapus</a>
                       </div>
                 </div>
                 <br/>
@@ -134,8 +134,8 @@
             @endif
             <br/>
               </div>
-            
-        
+
+
           </div>
         </div>
       </div>
@@ -338,6 +338,18 @@
 
 @endif
 
+@if (Session::has('success-delete'))
+<script>
+    swal({
+        title: "Good job!",
+        text: "Berhasil menghapus soal quiz",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+
+@endif
+
 @if (Session::has('error'))
 <script>
     swal({
@@ -379,7 +391,25 @@ $(document).ready(function(){
         $('#kunci_update').val(kunci_update);
 
     });
+
+    $(".hapus_soal").click(function (e) {
+        var quiz_id = $(this).data('quiz_id');
+        swal({
+            title: "Yakin?",
+            text: "Akan menghapus soal ini?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/quiz/"+quiz_id;
+            }
+        });
+    });
 });
+
+
 </script>
 <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 

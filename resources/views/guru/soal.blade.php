@@ -1,5 +1,5 @@
 @extends('layouts.master-dashboard-rhs-siswa')
-<?php  
+<?php
 use App\Siswa;
 use App\Guru;
 use App\Pilgan;
@@ -145,7 +145,7 @@ use App\Pilgan;
 
                 </tbody>
               </table>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
@@ -341,7 +341,7 @@ $(document).ready(function(){
 </script>
 
 @endsection
-
+@section('linkfooter')
 
 <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="buat_latihan">
     <div class="modal-dialog modal-md-12" >
@@ -369,6 +369,7 @@ $(document).ready(function(){
     </div>
 </div>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @if(Session::has('success-create'))
 <script>
     swal({
@@ -620,3 +621,4 @@ ClassicEditor
 </div>
 </div>
 <!-- Penutup Create Modal -->
+@endsection
