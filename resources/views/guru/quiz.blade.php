@@ -1,54 +1,118 @@
-@extends('layouts.master-dashboard-guru')
+@extends('layouts.master-dashboard-rhs-siswa')
 @section('title','Buat Soal Quiz')
+<?php  
+    use App\Guru;
+    $guru = Guru::where('user_id', Auth::user()->id )->first();
+?>
+
 @section('content')
-<style>
-.subjudul {
-    text-align:left;
-    font-weight:bold;
-}
-.isi {
-    margin-left:30px;
-}
-</style>
-<div class="panel">
-  <div class="panel-heading" style="margin-bottom:20px;">
-    <div class="col-md-6">
-      <h3 class="panel-title">Soal Quiz</h3>
+
+<!-- Main content -->
+<div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center ml-md-auto">
+            <li class="nav-item d-xl-none">
+              <!-- Sidenav toggler -->
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="dashboard.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                @if ( Guru::where('user_id', Auth::user()->id )->first() != null )
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="{{ url('images/' . $guru->foto) }}" width="20%">
+                  </span>
+                @else
+                <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="{{asset('assets_rhs_1/img/theme/react.jpg')}}">
+                  </span>
+                @endif
+
+                  <div class="media-body ml-2 d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">{{auth()->user()->username}}</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">{{auth()->user()->username}}</h6>
+                </div>
+                <a href="{{route('profilSiswa')}}" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>Profilku</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{route('logout')}}" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Keluar</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Quiz</h6>
+            </div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target=".create_soal_quiz">Tambah Soal</a>
+                </div>
+         </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <a href="#" class="btn btn-primary navbar-btn-right" data-toggle="modal" data-target=".create_soal_quiz">Tambah Soal Quiz</a>
-    </div>
-  </div>
-  <div class="panel-body">
-    @if($quiz != null)
-    <div class="container">
-      <?php $i=0; ?>
-      @foreach($quiz as $item)
-          <div class="row">
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+              <h3 class="mb-0">Daftar Pertanyaan Quiz</h3>
+            </div>
+           
+             <!-- Card body -->
+             <div class="card-body">
+             <div class="row">
+             @if($quiz != null)
+              <?php $i=0; ?>
+              @foreach($quiz as $item)
               <div class="col-md-8">
-                  <h6>Soal No.  <?php  $i++;  echo $i; ?> </h6>
-
-
-
-
+                  <h3>Soal No.  <?php  $i++;  echo $i; ?> </h3>
                       <div class="subjudul"> Pertanyaan : </div>
                       <div class="isi"> {!!$item->pertanyaan!!} </div>
                       <div class="subjudul"> Pilihan : </div>
-                      <div class="isi">    A . {{$item->pil_a}}  <br>
+                      <div class="isi">    A . {{$item->pil_a}}  
                           B . {{$item->pil_b}}  <br>
                           C . {{$item->pil_c}}  <br>
                           D . {{$item->pil_d}}  <br>
-                          E . {{$item->pil_e}} </div>
+                          E . {{$item->pil_e}}</div>
                       <div class="subjudul"> Kunci Jawaban : {{$item->kunci}}</div>
               </div>
 
               <div class="col-md-4">
-                  <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                          <!-- <span class="input-group-text" id="basic-addon1" style="background-color:#EDE5E5;">Poin</span> -->
-                      </div>
-                      <div class="row" style="margin-bottom: 5px;">
-                        <button class="btn btn-info" data-toggle="modal" data-target=".update_soal_quiz"
+                      <div class="row">
+                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target=".update_soal_quiz"
                         id="updateSoalQuiz"
                         data-soal_quiz_id_update="{!! $item->id !!}"
                         data-pertanyaan_update="{!! $item->pertanyaan !!}"
@@ -59,52 +123,34 @@
                         data-pil_e_update="{!! $item->pil_e !!}"
                         data-foto_update="{!! $item->foto !!}"
                         data-kunci_update="{!! $item->kunci !!}">
-                        <i class="fa fa-eye"></i> Edit Soal Quiz</button>
+                         Edit Soal Quiz</button>
                       </div>
                       <div class="row">
-                        <a href="#" class="btn btn-primary">Hapus</a>
+                        <a href="#" class="btn btn-sm btn-primary">Hapus</a>
                       </div>
-                  </div>
-
-
+                </div>
+                <br/>
+                @endforeach
+            @endif
+            <br/>
               </div>
+            
+        
           </div>
-          <hr>
-      @endforeach
-  </div>
-  @endif
-    <!-- @foreach($quiz as $item)
-    <div class="row">
-      <div class="col-lg-2">
-        <b>Soal No.</b>
-      </div>
-      <div class="col=lg-10">
-        <div class="row">
-          {!!$item->pertanyaan!!}
-        </div>
-        <div class="row">
-          A. {!!$item->pil_a!!}
-          B. {!!$item->pil_b!!}
-          C. {!!$item->pil_c!!}
-          D. {!!$item->pil_d!!}
-          E. {!!$item->pil_e!!}
-        </div>
-        <div class="row">
-          Kunci : {{$item->kunci}}
         </div>
       </div>
     </div>
-    @endforeach -->
-    <div class="row">
+    </div>
 
-    </div>
-  </div>
-</div>
+
+
+
 @endsection
+
 @section('linkfooter')
 <!-- Modal Create Soal Quiz -->
 <div class="modal fade create_soal_quiz"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md-12" >
+  <div class="modal-dialog modal-lg" >
     <div class="modal-content">
       <div class="modal-header ">
         <h5 class="modal-title " id="exampleModalLabel"> Tambahkan Soal Baru</h5>
@@ -117,7 +163,7 @@
           <div class="modal-body">
             <div class="container">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <!-- <div class="form-group">
                     <label for="Pertanyaan" class="col-form-label">Poin</label>
                     <input type="text" class="form-control" name="poin"  id="poin">
@@ -130,7 +176,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="PilA" class="col-form-label">Pilihan A</label>
                     <textarea class="form-control" name="pil_a" rows="auto" cols="auto" id="PilA"></textarea>
@@ -144,7 +190,7 @@
                     <textarea class="form-control" name="pil_c" rows="auto" cols="auto" id="PilC"></textarea>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="PilD" class="col-form-label">Pilihan D</label>
                     <textarea class="form-control" name="pil_d" rows="auto" cols="auto" id="PilD"></textarea>
@@ -160,7 +206,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="kunci" class="col-form-label">Kunci</label>
                     <select class="form-control" name="kunci" id="kunci" >
@@ -190,10 +236,10 @@
 
 <!-- Modal Update Soal Quiz -->
 <div class="modal fade update_soal_quiz"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md-12" >
+  <div class="modal-dialog modal-lg" >
     <div class="modal-content">
       <div class="modal-header ">
-        <h5 class="modal-title " id="exampleModalLabel"> Tambahkan Soal Baru</h5>
+        <h5 class="modal-title " id="exampleModalLabel"> Edit Soal Quiz</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -205,7 +251,7 @@
           <div class="modal-body">
             <div class="container">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <!-- <div class="form-group">
                     <label for="Pertanyaan" class="col-form-label">Poin</label>
                     <input type="text" class="form-control" name="poin"  id="poin">
@@ -218,7 +264,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="PilA" class="col-form-label">Pilihan A</label>
                     <textarea class="form-control" name="pil_a" rows="auto" cols="auto" id="pil_a_update"></textarea>
@@ -232,7 +278,7 @@
                     <textarea class="form-control" name="pil_c" rows="auto" cols="auto" id="pil_c_update"></textarea>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="PilD" class="col-form-label">Pilihan D</label>
                     <textarea class="form-control" name="pil_d" rows="auto" cols="auto" id="pil_d_update"></textarea>
@@ -249,7 +295,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="kunci" class="col-form-label" id="kunci_text">Kunci  </label>
                     <select class="form-control" name="kunci" id="kunci" >
@@ -270,7 +316,7 @@
 
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-info" >Buat Soal</button>
+        <button type="submit" class="btn btn-info" >Simpan</button>
         </div>
       </form>
     </div>
@@ -438,5 +484,3 @@ ClassicEditor
             } );
 </script>
 @stop
-
-
