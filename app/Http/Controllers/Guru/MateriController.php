@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Guru;
 use App\Http\Controllers\Controller;
 use App\Materi;
 use Alert;
-
 use Illuminate\Http\Request;
 
 class MateriController extends Controller
@@ -96,6 +95,13 @@ class MateriController extends Controller
       }
       return redirect()->back()->with('success','Text');
 ;
+    }
+   
+    public function deleteMateri($id)
+    {
+        $materi = Materi::find($id);
+        $materi->delete();
+        return back()->with('success_delete','Berhasil Menghapus Materi');
     }
    
 }

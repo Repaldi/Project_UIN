@@ -295,8 +295,12 @@ use App\Pilgan;
                         data-pil_e_update="{!! $item->pil_e !!}"
                         data-foto_update="{!! $item->foto !!}"
                         data-kunci_update="{!! $item->kunci !!}">
-                        <i class="fa fa-eye"></i> Edit Soal</button>
+                        Edit Soal</button>
+                       
                         </div>
+                        <div class="text-right" style="padding-top :5px">
+                        <a href="#" class="btn btn-sm btn-danger hapus-soal-latihan" pilgan_id="{{$item->id}}">Hapus Soal</a>
+            </div>
             </div>
            </div>
         </div>
@@ -396,6 +400,24 @@ $(document).ready(function(){
 				}
 			});
 		});
+    
+    // $('.hapus-soal-latihan').click(function(){
+    //   var latihan_id = $(this).attr('latihan_id');
+    //   var pilgan_id = $(this).attr('pilgan_id');
+    //   swal({
+    //     title: "Yakin?",
+    //     text: "Menghapus soal ini ?",
+    //     icon: "warning",
+    //     buttons: true,
+    //     dangerMode: true,
+    //   })
+    //   .then((willDelete) => {
+    //     if (willDelete) {
+    //       window.location = "/guru/latihan/delete/"+latihan_id+"/"+pilgan_id;
+    //     }
+    //   });
+    // });
+
 </script>
 
 <!-- Create Modal (Pilgan)-->

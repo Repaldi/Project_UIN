@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     //route untuk get latihan_siswa per latihan
     Route::get('/hasil-latihan_siswa-per-latihan/{id}','Guru\LatihanController@getLatihanSiswaPerLatihan')->name('getLatihanSiswaPerLatihan');
     Route::get('/latihan/delete/{id}','Guru\LatihanController@deleteLatihan')->name('deleteLatihan');
+    Route::get('/latihan/delete/{latihan_id}/{pilgan_id}','QuestionController@deletePilgan', ['$latihan_id' =>'latihan_id','$pilgan_id'=>'pilgan_id'])->name('deletePilgan');
     Route::get('hasil-latihan/{id}','Guru\LatihanController@showHasilLatihan')->name('showHasilLatihan');
     Route::get('/e-book/delete/{id}','Guru\EbookController@deleteEbook')->name('deleteEbook');
 
@@ -68,6 +69,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::patch('/buatSoal','Guru\SoalController@updateSoal')->name('updateSoal');
 
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
+    Route::get('/materi/{id}','Guru\MateriController@deleteMateri')->name('deleteMateri');
     Route::get('/materi/{id}','Guru\MateriController@showMateri')->name('showMateri');
     Route::get('/quiz','Guru\QuizController@index')->name('getQuiz');
     Route::get('/quiz/{id}','Guru\QuizController@deleteQuiz')->name('deleteQuiz');

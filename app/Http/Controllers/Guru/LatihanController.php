@@ -61,4 +61,10 @@ class LatihanController extends Controller
         $latihan->delete();
         return redirect()->back();
     }
+    // public function deletePilgan($latihan_id,$pilgan_id){
+    //     $pilgan= Pilgan::find($pilgan_id);
+    //     $pilgan->delete();
+    //     return redirect()->back()->withSuccess('Soal berhasil dihapus');
+    // }
+
 }
