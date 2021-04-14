@@ -90,7 +90,7 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--6">
-    <div class="card">
+    <div class="card" style="background-image: url('assets_rhs_1/img/theme/ok.jpeg')">
             @if($materi->materi != null)
               <!-- Card header -->
               <div class="card-header">
@@ -205,7 +205,7 @@
      @if($materi == null)
       <form action="{{route('storeMateri')}}" method="post" enctype="multipart/form-data">
       @csrf
-      <div class="card">
+      <div class="card" style="background-image: url('assets_rhs_1/img/theme/bg.png')">
               <!-- Card header -->
               <div class="card-header">
                 <h3 class="mb-0">Judul</h3>
@@ -244,9 +244,9 @@
       <form action="{{route('updateMateri')}}" method="post" enctype="multipart/form-data">
       @csrf @method('PATCH')
       <input type="hidden" name="materi_id" value="{{$materi->id}}">
-      <div class="card">
+      <div class="card" >
               <!-- Card header -->
-              <div class="card-header">
+              <div class="card-header" >
                 <h3 class="mb-0">Judul</h3>
               </div>
               <!-- Card body -->
