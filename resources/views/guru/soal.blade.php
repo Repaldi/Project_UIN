@@ -114,7 +114,7 @@ use App\Pilgan;
                 </thead>
                 <tbody>
 
-                @if($latihan_siswa->count() != 0)
+                @if($latihan_siswa->count() != 0 AND $latihan_siswa->latihan->deleted_at == null)
                 @foreach($latihan_siswa as $item)
                   <tr>
                     <td class="no">
@@ -139,7 +139,7 @@ use App\Pilgan;
                     @endforeach
                     @else
                     <tr>
-                <td>Kamu Belum mengikuti Latihan manapun</td>
+                <td>Tidak Ada Latihan Yang Harus Dikerjakan</td>
                 </tr>
                 @endif
 
