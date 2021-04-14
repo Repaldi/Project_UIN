@@ -116,28 +116,30 @@ use App\Pilgan;
 
                 @if($latihan_siswa->count() != 0)
                 @foreach($latihan_siswa as $item)
-                  <tr>
-                    <td class="no">
-                    {{$loop->iteration}}
-                    </td>
-                    <td class="nama_latihan">
-                    {{$item->latihan->nama_latihan}}
-                    </td>
-                    <td class="status">
-                    @if ($item->status == false)
-                            Belum dikerjakan
-                        @else
-                            Telah dikerjakan
-                        @endif
-                    </td>
-                    <td >
+                    @if ($item->latihan->is_delete == false)
+                    <tr>
+                        <td class="no">
+                        {{$loop->iteration}}
+                        </td>
+                        <td class="nama_latihan">
+                        {{$item->latihan->nama_latihan}}
+                        </td>
+                        <td class="status">
                         @if ($item->status == false)
-                        <a href="{{route('getLatihanSiswa',$item->id)}}" class="btn btn-sm btn-info">Buka</a>
-                        @endif
-                    </td>
+                                Belum dikerjakan
+                            @else
+                                Telah dikerjakan
+                            @endif
+                        </td>
+                        <td >
+                            @if ($item->status == false)
+                            <a href="{{route('getLatihanSiswa',$item->id)}}" class="btn btn-sm btn-info">Buka</a>
+                            @endif
+                        </td>
                     </tr>
-                    @endforeach
-                    @else
+                    @endif
+                @endforeach
+                @else
                     <tr>
                 <td>Tidak Ada Latihan Yang Harus Dikerjakan</td>
                 </tr>

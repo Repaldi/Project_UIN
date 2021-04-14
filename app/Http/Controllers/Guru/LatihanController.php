@@ -58,7 +58,9 @@ class LatihanController extends Controller
     public function deleteLatihan($id)
     {
         $latihan = Latihan::find($id);
-        $latihan->delete();
+        $latihan->update([
+            'is_delete' => true
+        ]);
         return redirect()->back();
     }
     // public function deletePilgan($latihan_id,$pilgan_id){
