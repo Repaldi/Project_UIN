@@ -109,7 +109,7 @@
             @if($materi->video != null)
              <div class="text-center">
               <iframe src="{{url('asset-materi/'.$materi->video)}}" width="70%" height="500px"></iframe>
-              <center><p>{!!$materi->sumber_video!!}
+              <center><p>Sumber Video : <a href="{!!$materi->sumber_video!!}">{!!$materi->sumber_video!!}</a>
             </div>
             @else
             @endif
