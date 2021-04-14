@@ -89,8 +89,9 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--6">
-    <div class="card" style="background-image: url('assets_rhs_1/img/theme/ok.jpeg')">
+    <div class="container-fluid mt--6" style="background-image: url('assets_rhs_1/img/theme/ok.jpeg'); background-repeat: no-repeat;
+  background-size: auto;">
+    <div class="card" >
             @if($materi->materi != null)
               <!-- Card header -->
               <div class="card-header">
@@ -108,6 +109,7 @@
             @if($materi->video != null)
              <div class="text-center">
               <iframe src="{{url('asset-materi/'.$materi->video)}}" width="70%" height="500px"></iframe>
+              <center><p>{!!$materi->sumber_video!!}
             </div>
             @else
             @endif
@@ -225,6 +227,14 @@
                     <label class="custom-file-label" for="customFileLang">Piih File</label>
                   </div>
               </div>
+              <div class="card-header">
+                <h3 class="mb-0"> Sumber Video</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+              <textarea class="form-control ckeditor_sv" name="sumber_video" rows="auto" cols="auto" id="sumber_video" rows="2" required>{{old('sumber_video')}}</textarea>
+
+              </div>
               <!-- Card header -->
               <div class="card-header">
                 <h3 class="mb-0">ISI MATERI</h3>
@@ -266,6 +276,13 @@
                     <label class="custom-file-label" for="customFileLang">Piih File</label>
                   </div>
               </div>
+              <div class="card-header">
+                <h3 class="mb-0">Sumber Video</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+              <input type="text" class="form-control" name="sumber_video" value="{{$materi->sumber_video}}">
+            </div>
               @else
                <!-- Card header -->
                <div class="card-header">
@@ -280,6 +297,13 @@
                   <input type="file" class="custom-file-input" name="video" value="{{url('asset-materi'.$materi->video)}}" lang="en">
                     <label class="custom-file-label" for="customFileLang">Piih File</label>
                     </div>
+              </div>
+              <div class="card-header">
+                <h3 class="mb-0">Sumber Video</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+              <input type="text" class="form-control" name="sumber_video" value="{{$materi->sumber_video}}">
               </div>
               @endif
               <!-- Card header -->

@@ -39,7 +39,8 @@ class MateriController extends Controller
     {
       $request->validate([
         'video' =>'mimes:mp4,3gp,mkv,api,fla,mpg,mpeg,mov',
-        'materi' => 'required'
+        'materi' => 'required',
+        'sumber_video' => 'required'
       ]);
 
       if ($request->hasFile('gambar')) {
@@ -59,7 +60,8 @@ class MateriController extends Controller
       Materi::create([
         'gambar' => $nama_gambar,
         'video' => $nama_video,
-        'materi' =>$request->materi
+        'materi' =>$request->materi,
+        'sumber_video' =>$request->sumber_video,
       ]);
 
       Alert::success('Berhasil Membuat materi');
@@ -72,7 +74,8 @@ class MateriController extends Controller
       $request->validate([
         'judul_materi' => 'required',
         'video' =>'mimes:mp4,3gp,mkv,api,fla,mpg,mpeg',
-        'materi' => 'required'
+        'materi' => 'required',
+        'sumber_video' => 'required'
       ]);
 
       if($request->hasFile('video')) {
@@ -84,13 +87,15 @@ class MateriController extends Controller
         $materi->update([
             'judul_materi'=>$request->judul_materi,
             'video' => $nama_video,
-            'materi' => $request->materi
+            'materi' => $request->materi,
+            'sumber_video' => $request->sumber_video,
         ]);
 
       }else {
         $materi->update([
-            'judul_materi'=>$request->judul_materi,
-          'materi'=> $request->materi
+          'judul_materi'=>$request->judul_materi,
+          'materi'=> $request->materi,
+          'sumber_video'=> $request->sumber_video,
         ]);
       }
       return redirect()->back()->with('success','Text');
