@@ -160,6 +160,12 @@
             <div class="card-header bg-transparent">
               <h3>ISI PESAN</h3>
               <p>{!!$forum->isi_pesan!!}</p>
+              @if($forum->user_id != auth()->user()->id)
+              <a href="#" data-toggle="modal" data-target=".create_modal_balas">  <span class="badge badge-pill badge-primary">balas</span></a>  
+
+              @else
+              @endif
+
             </div>
             <div class="card-body">
               <div class="timeline timeline-one-side" data-timeline-content="axis" data-timeline-axis-style="dashed">
