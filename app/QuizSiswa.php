@@ -16,6 +16,6 @@ class QuizSiswa extends Model
 
     public function quiz_jawab()
     {
-        return $this->hasMany(QuizJawab::class, 'quiz_siswa_id', 'id');
+        return $this->hasMany(QuizJawab::class, 'quiz_siswa_id', 'id')->withTrashed();
     }
 }

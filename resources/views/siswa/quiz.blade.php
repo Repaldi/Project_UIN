@@ -146,9 +146,9 @@ p{
 @endsection
 @section('linkfooter')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.map"></script> --}}
 <script>
 $(document).ready(function(){
     const quiz_siswa_id = $('#quiz_siswa_id').val();
@@ -157,7 +157,6 @@ $(document).ready(function(){
     // $("#fullscreenExam").hide();
 
     $("#start_quiz").click(function(e){
-        alert("ok");
         $("#fullscreenExam").show();
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
@@ -193,19 +192,14 @@ $(document).ready(function(){
         }
 
         $("#close_quiz").click(function (e) {
-            e.preventDefault();
-            closeFullscreen();
-        });
-
-        function closeFullscreen() {
             $.ajax({
                 type: "GET",
-                url: "/quiz/check",
+                url: '{{url("quiz/check")}}',
                 data: {
                     quiz_siswa_id: quiz_siswa_id
                 },
                 success: function (response) {
-
+                    alert("ok sudah");
                     if(response.isComplete === true){
                         if (document.exitFullscreen) {
                             document.exitFullscreen();
@@ -216,8 +210,41 @@ $(document).ready(function(){
                         alert(response.pesan);
                         $("#fullscreenExam").css('display','none');
                     }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
                 }
             });
+            // closeFullscreen();
+        });
+
+        function closeFullscreen() {
+            // alert("ok");
+            // $.ajax({
+            //     type: "GET",
+            //     url: "/quiz/check",
+            //     data: {
+            //         quiz_siswa_id: quiz_siswa_id
+            //     },
+            //     success: function (response) {
+            //         alert("ok sudah");
+            //         if(response.isComplete === true){
+            //             if (document.exitFullscreen) {
+            //                 document.exitFullscreen();
+            //                 $("#fullscreenExam").hide();
+            //                 window.location = "/quiz/finish/"+ quiz_siswa_id;
+            //             }
+            //         }else{
+            //             alert(response.pesan);
+            //             $("#fullscreenExam").css('display','none');
+            //         }
+            //     },
+            //     error: function(xhr, status, error) {
+            //         var err = eval("(" + xhr.responseText + ")");
+            //         alert(err.Message);
+            //     }
+            // });
 
 
         }

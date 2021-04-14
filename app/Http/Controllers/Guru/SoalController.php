@@ -15,6 +15,7 @@ class SoalController extends Controller
     {
         $pilgan = Pilgan::where('isdelete',false)->get();
         $latihan = Latihan::all();
+        // dd($latihan);
         if (auth()->user()->role == 2) {
             $latihan_siswa = LatihanSiswa::where('user_id',auth()->user()->id)->get();
             // dd($latihan_siswa);

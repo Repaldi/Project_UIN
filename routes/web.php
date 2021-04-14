@@ -71,8 +71,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/materi','Guru\MateriController@materi')->name('materi');
     Route::get('/materi/{id}','Guru\MateriController@deleteMateri')->name('deleteMateri');
     Route::get('/materi/{id}','Guru\MateriController@showMateri')->name('showMateri');
-    Route::get('/quiz','Guru\QuizController@index')->name('getQuiz');
-    Route::get('/quiz/{id}','Guru\QuizController@deleteQuiz')->name('deleteQuiz');
+    Route::get('/quiz/get','Guru\QuizController@index')->name('getQuiz');
+    Route::get('/quiz/delete/{id}','Guru\QuizController@deleteQuiz')->name('deleteQuiz');
 
     Route::post('/quiz','Guru\QuizController@storeSoalQuiz')->name('storeSoalQuiz');
     Route::patch('/quiz','Guru\QuizController@updateSoalQuiz')->name('updateSoalQuiz');

@@ -114,7 +114,7 @@ use App\Pilgan;
                 </thead>
                 <tbody>
 
-                @if($latihan_siswa->count() != 0 AND $latihan_siswa->latihan->deleted_at == null)
+                @if($latihan_siswa->count() != 0)
                 @foreach($latihan_siswa as $item)
                   <tr>
                     <td class="no">
@@ -296,7 +296,7 @@ use App\Pilgan;
                         data-foto_update="{!! $item->foto !!}"
                         data-kunci_update="{!! $item->kunci !!}">
                         Edit Soal</button>
-                       
+
                         </div>
                         <div class="text-right" style="padding-top :5px">
                         <a href="#" class="btn btn-sm btn-danger hapus-soal-latihan" pilgan_id="{{$item->id}}">Hapus Soal</a>
@@ -400,7 +400,7 @@ $(document).ready(function(){
 				}
 			});
 		});
-    
+
     // $('.hapus-soal-latihan').click(function(){
     //   var latihan_id = $(this).attr('latihan_id');
     //   var pilgan_id = $(this).attr('pilgan_id');
