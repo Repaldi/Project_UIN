@@ -23,6 +23,8 @@ class SoalController extends Controller
             $latihan_siswa = null;
         }
 
+        // dd($latihan_siswa);
+
         return view('guru/soal', compact(['pilgan','latihan','latihan_siswa']));
     }
 
