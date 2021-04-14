@@ -245,7 +245,7 @@
                     <td>
 
                       <a href="{{route('showMateri',$item->id)}}" class="btn btn-sm btn-primary" target="_self">Buka Materi</a>
-                      <a href="#" class="btn btn-sm btn-danger hapus_materi" data-quiz_id="{{$item->id}}" >Hapus Materi</a>
+                      <a href="#" class="btn btn-sm btn-danger hapus_materi" data-materi_id="{{$item->id}}" >Hapus Materi</a>
 
                     </td>
                     </tr>
@@ -269,10 +269,13 @@
 
 
 @endsection
-
+@section('linkfooter')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 $(document).ready(function(){
+  const materi_id = $(this).data('materi_id');
     $(".hapus_materi").click(function (e) {
+
         swal({
             title: "Yakin?",
             text: "Akan menghapus Materi ini?",
@@ -282,12 +285,13 @@ $(document).ready(function(){
         })
         .then((willDelete) => {
             if (willDelete) {
-                window.location = "/materi";
+                window.location = "/materi/"+ materi_id;
             }
         });
     });
 });
 </script>
+
 <div class="modal fade" id="tambah_materi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -310,3 +314,4 @@ $(document).ready(function(){
       </div>
     </div>
 </div>
+@endsection

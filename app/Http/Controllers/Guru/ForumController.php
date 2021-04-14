@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guru;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Forum;
+use App\User;
 use App\ForumJawab;
 
 class ForumController extends Controller
@@ -12,7 +13,8 @@ class ForumController extends Controller
     public function forum()
     {
         $forum= Forum::paginate(10);
-        return view('forum',compact('forum'));
+        $user_id = auth()->user()->id;
+        return view('forum',compact('forum','user_id'));
     }
 
     public function storeForum(Request $request)

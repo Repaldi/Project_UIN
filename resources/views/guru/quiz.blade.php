@@ -125,8 +125,8 @@
                         data-kunci_update="{!! $item->kunci !!}">
                          Edit Soal Quiz</button>
                       </div>
-                      <div class="row">
-                        <a href="#" class="btn btn-sm btn-primary hapus_soal" data-quiz_id="{{$item->id}}">Hapus</a>
+                      <div class="row" style="padding-top:5px;">
+                        <a href="#" class="btn btn-sm btn-danger hapus_soal" data-quiz_id="{{$item->id}}">Hapus</a>
                       </div>
                 </div>
                 <br/>

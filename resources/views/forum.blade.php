@@ -188,13 +188,19 @@
                     <td class="tanggal">
 					{{$item->created_at}}
                     </td>
-                    <td >
+                   
+           @if($user_id == 1)
+           <td >
 					<a href="{{route('showForum',$item->id)}}" class="btn btn-sm btn-info">Buka</a>
-					@if ($item->user->role == 1)
 					<a href="{{route('deleteForum',$item->id)}}" class="btn  btn-sm btn-danger">Hapus</a>
+          </td>
 					@else
+          <td >
+					<a href="{{route('showForum',$item->id)}}" class="btn btn-sm btn-info">Buka</a>
+				
+          </td>
 					@endif
-                    </td>
+                    
                     </tr>
                     @endforeach
 
