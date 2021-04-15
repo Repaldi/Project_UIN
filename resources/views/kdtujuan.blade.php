@@ -26,7 +26,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -162,7 +162,7 @@
     </div>
     </div>
     </div>
- 
+
   @else
 
   <!-- Main content -->
@@ -183,7 +183,7 @@
                 </div>
               </div>
             </li>
-            
+
           </ul>
           <ul class="navbar-nav align-items-center ml-auto ml-md-0">
             <li class="nav-item dropdown">
@@ -236,7 +236,7 @@
         </div>
       </div>
     </div>
-    
+
      <!-- Page content -->
      <div class="container-fluid mt--6">
       <div class="row">
@@ -260,7 +260,7 @@
                 <hr />
                 <form class="needs-validation" action="{{route('storeKDTujuan')}}" method="post">
     @csrf
-    @if($kdtujuan == null)             
+    @if($kdtujuan == null)
                   <div class="form-row">
                     <div class="col-md-12 mb-3">
                       <label class="form-control-label" for="validationCustom01">Kompetensi Inti</label>
@@ -275,7 +275,7 @@
                       <textarea class="form-control" name="tujuan" rows="auto" cols="auto" id="tujuan"></textarea>
                     </div>
                   </div>
-                 
+
                   @else
                   <div class="form-row">
                     <div class="col-md-12 mb-3">
