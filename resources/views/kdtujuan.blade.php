@@ -6,7 +6,19 @@
 ?>
 
 @section('content')
+<style>
+    .card{
+      backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+    }
 
+    .card-header{
+      backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+    }
+
+    .card-footer{
+      backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+    }
+</style>
 @if(auth()->user()->role==2)
 <!-- Main content -->
  <div class="main-content" id="panel">
