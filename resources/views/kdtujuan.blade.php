@@ -6,7 +6,17 @@
 ?>
 
 @section('content')
-
+{{-- <style>
+    .card{
+        background: url('{{asset("images/background_new1.jpeg")}}') ;
+    }
+    .card-header{
+        background: url('{{asset("images/background_new1.jpeg")}}') ;
+    }
+    /* .card{position:relative;display:flex;flex-direction:column;min-width:0;word-wrap:break-word;border:1px solid rgba(0,0,0,.05);border-radius:.375rem;background-color:#fff; background: url('{{asset("images/background_new1.jpeg")}}');background-clip:border-box}
+    .card-header{background-image: url('{{asset("images/background_new1.jpeg")}}');margin-bottom:0;padding:1.25rem 1.5rem;border-bottom:1px solid rgba(0,0,0,.05);background-color:#fff}
+    .card-footer{background-image: url('{{asset("images/background_new1.jpeg")}}');padding:1.25rem 1.5rem;border-top:1px solid rgba(0,0,0,.05);background-color:#fff} */
+</style> --}}
 @if(auth()->user()->role==2)
 <!-- Main content -->
  <div class="main-content" id="panel">
@@ -306,7 +316,12 @@
 @endsection
 
 @section('linkfooter')
-
+<script>
+    $(document).ready(function () {
+        $(".card").css('background-image','{{URL::asset('/images/background_new1.jpeg')}}')
+        // alert("ok");
+    });
+</script>
 <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
 <script>
 ClassicEditor
