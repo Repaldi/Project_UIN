@@ -21,6 +21,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
   <link rel="stylesheet" href="{{asset('assets_rhs_1/css/argon.min-v=1.0.0.css')}}" type="text/css">
   <script src="{{asset('assets_rhs_1/vendor/jquery/dist/jquery.min.js')}}"></script>
+  <style>
+      .card{
+        backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+      }
+
+      .card-header{
+        backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+      }
+
+      .card-footer{
+        backgroud-image: url('{{asset("images/background_new1.jpeg")}}') !important;
+      }
+  </style>
 </head>
 <?php  use App\Siswa;
       use App\Guru;
